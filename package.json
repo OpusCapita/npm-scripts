@@ -1,0 +1,34 @@
+{
+  "name": "jcatalog-dev-tools",
+  "version": "1.0.0",
+  "description": "Provides dev tools",
+  "main": "index.js",
+  "private": "true",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://buildserver.jcatalog.com/git/jcatalog-dev-tools.git"
+  },
+  "keywords": [
+    "jCatalog",
+    "dev",
+    "tool",
+    "tools"
+  ],
+  "author": {
+    "name": "Eugene Viktarovich",
+    "email": "eugene.viktorovich@jcatalog.com"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "git-rev-sync": "^1.4.0",
+    "globule": "^0.2.0",
+    "gulp-util": "^3.0.7",
+    "gulp-zip": "^3.1.0",
+    "handlebars": "^4.0.5",
+    "require-dir": "^0.3.0",
+    "through2": "^2.0.1"
+  }
+}
