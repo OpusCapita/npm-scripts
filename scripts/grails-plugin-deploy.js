@@ -5,19 +5,24 @@ var through = require('through2');
 var gutil = require('gulp-util');
 var path = require('path');
 
+/**
+ * Exports task in order to deploy Grails 2 artefact to local repository.
+ *
+ * @param gulp - A gulp instance
+ * @param config - The script configuration
+ */
 module.exports = function (gulp, config) {
-
   // checks configuration
   if (!config.maven) {
-    throw new gutil.PluginError('plugin-deploy', 'Maven section not found in package.json!');
+    throw new gutil.PluginError('grails-plugin-deploy', 'Maven section not found in package.json!');
   }
 
   if (config.maven.groupId === undefined) {
-    throw new gutil.PluginError('mvn-deploy', 'Undefined maven [groupId] in configuration')
+    throw new gutil.PluginError('grails-plugin-deploy', 'Undefined maven [groupId] in configuration')
   }
 
   if (config.maven.artefactId === undefined) {
-    throw new gutil.PluginError('mvn-deploy', 'Undefined maven [artefactId] in configuration')
+    throw new gutil.PluginError('grails-plugin-deploy', 'Undefined maven [artefactId] in configuration')
   }
 
   /**
@@ -33,10 +38,10 @@ module.exports = function (gulp, config) {
       var repositoryUrl = releasedVersion ? config.maven.repositories.releases.url : config.maven.repositories.snapshots.url;
 
       if (repositoryUrl === undefined) {
-        throw new gutil.PluginError('mvn-deploy', 'Undefined maven repository URL in configuration')
+        throw new gutil.PluginError('grails-plugin-deploy', 'Undefined maven repository URL in configuration')
       }
       if (repositoryId === undefined) {
-        throw new gutil.PluginError('mvn-deploy', 'Undefined maven repository ID in configuration')
+        throw new gutil.PluginError('grails-plugin-deploy', 'Undefined maven repository ID in configuration')
       }
 
       var packaging = config.maven.packaging !== undefined ? config.maven.packaging : 'zip';
@@ -44,7 +49,7 @@ module.exports = function (gulp, config) {
         util.command('mvn -B deploy:deploy-file -Dfile=' + file.path + ' -Durl=' + repositoryUrl + ' -DrepositoryId=' + repositoryId + ' -DgroupId=' + groupId + ' -DartifactId=' + artefactId
           + ' -Dversion=' + version + ' -Dpackaging=' + packaging, function (err, stdout, stderr) {
           if (err) {
-            stream.emit('error', new gutil.PluginError('mvn-deploy', err));
+            stream.emit('error', new gutil.PluginError('grails-plugin-deploy', err));
           } else {
             cb();
           }
@@ -53,7 +58,7 @@ module.exports = function (gulp, config) {
     };
 
     var version = util.getMavenArtefactVersion(config.version, release);
-    var filepath = path.join('./build', util.getMavenArtefactName(vconfig.maven.artefactId, ersion));
+    var filepath = path.join('./build', util.getMavenArtefactName(config.maven.artefactId, version));
 
     gulp.src(filepath)
       .pipe(deploy(config.maven.groupId, config.maven.artefactId, version))

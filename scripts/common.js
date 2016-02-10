@@ -20,6 +20,13 @@ function command(cmd, done) {
 }
 
 /**
+ * Builds maven group id for Grails 3.
+ */
+function getGrails3MavenGroupId(groupId) {
+  return groupId.replace('grailsplugins', 'grails3plugins')
+}
+
+/**
  * Builds maven artefact name.
  */
 function getMavenArtefactName(artefactId, version) {
@@ -35,6 +42,7 @@ function getGrails3MavenArtefactName(artefactId, version) {
 
 /**
  * Builds maven artefact version based on version from package.json and git branch.
+ * todo: It's necessary to reimplement function in order to build version of artefact right (to depend on branch name).
  */
 function getMavenArtefactVersion(version, release) {
   var branch = git.branch();
@@ -73,7 +81,8 @@ function check(cmd, err, stdout, stderr) {
 
 module.exports = {
   command: command,
+  getMavenArtefactVersion: getMavenArtefactVersion,
   getMavenArtefactName: getMavenArtefactName,
+  getGrails3MavenGroupId: getGrails3MavenGroupId,
   getGrails3MavenArtefactName: getGrails3MavenArtefactName,
-  getMavenArtefactVersion: getMavenArtefactVersion
 };

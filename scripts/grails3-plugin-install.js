@@ -5,19 +5,24 @@ var through = require('through2');
 var gutil = require('gulp-util');
 var path = require('path');
 
+/**
+ * Exports task in order to install Grails 3 artefact to local repository.
+ *
+ * @param gulp - A gulp instance
+ * @param config - The script configuration
+ */
 module.exports = function (gulp, config) {
-
   // checks configuration
   if (!config.maven) {
-    throw new gutil.PluginError('plugin-install', 'Maven section not found in package.json!');
+    throw new gutil.PluginError('grails3-plugin-install', 'Maven section not found in package.json!');
   }
 
   if (config.maven.groupId === undefined) {
-    throw new gutil.PluginError('mvn-install', 'Undefined maven [groupId] in configuration')
+    throw new gutil.PluginError('grails3-plugin-install', 'Undefined maven [groupId] in configuration')
   }
 
   if (config.maven.artefactId === undefined) {
-    throw new gutil.PluginError('mvn-install', 'Undefined maven [artefactId] in configuration')
+    throw new gutil.PluginError('grails3-plugin-install', 'Undefined maven [artefactId] in configuration')
   }
 
   /**
@@ -26,11 +31,11 @@ module.exports = function (gulp, config) {
   gulp.task('grails3-plugin-install', function () {
     var install = function (groupId, artefactId, version) {
       var stream = this;
-      var packaging = config.maven.packaging !== undefined ? config.maven.packaging : 'jar';
+      var packaging = 'jar';
       return through.obj(function (file, enc, cb) {
         util.command('mvn -B install:install-file -Dfile=' + file.path + ' -DgroupId=' + groupId + ' -DartifactId=' + artefactId + ' -Dversion=' + version + ' -Dpackaging=' + packaging, function (err, stdout, stderr) {
           if (err) {
-            stream.emit('error', new gutil.PluginError('mvn-install', err));
+            stream.emit('error', new gutil.PluginError('grails3-plugin-install', err));
           } else {
             cb();
           }
@@ -42,6 +47,6 @@ module.exports = function (gulp, config) {
     var filepath = path.join('./build', util.getGrails3MavenArtefactName(config.maven.artefactId, version));
 
     gulp.src(filepath)
-      .pipe(install(config.maven.groupId.replace('grailsplugins', 'grails3plugins'), config.maven.artefactId, version));
+      .pipe(install(util.getGrails3MavenGroupId(config.maven.groupId), config.maven.artefactId, version));
   });
 };

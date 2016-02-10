@@ -5,19 +5,24 @@ var through = require('through2');
 var gutil = require('gulp-util');
 var path = require('path');
 
+/**
+ * Exports task in order to install Grails 2 artefact to local repository.
+ *
+ * @param gulp - A gulp instance
+ * @param config - The script configuration
+ */
 module.exports = function (gulp, config) {
-
   // checks configuration
   if (!config.maven) {
-    throw new gutil.PluginError('plugin-install', 'Maven section not found in package.json!');
+    throw new gutil.PluginError('grails-plugin-install', 'Maven section not found in package.json!');
   }
 
   if (config.maven.groupId === undefined) {
-    throw new gutil.PluginError('mvn-install', 'Undefined maven [groupId] in configuration')
+    throw new gutil.PluginError('grails-plugin-install', 'Undefined maven [groupId] in configuration')
   }
 
   if (config.maven.artefactId === undefined) {
-    throw new gutil.PluginError('mvn-install', 'Undefined maven [artefactId] in configuration')
+    throw new gutil.PluginError('grails-plugin-install', 'Undefined maven [artefactId] in configuration')
   }
 
   /**
@@ -30,7 +35,7 @@ module.exports = function (gulp, config) {
       return through.obj(function (file, enc, cb) {
         util.command('mvn -B install:install-file -Dfile=' + file.path + ' -DgroupId=' + groupId + ' -DartifactId=' + artefactId + ' -Dversion=' + version + ' -Dpackaging=' + packaging, function (err, stdout, stderr) {
           if (err) {
-            stream.emit('error', new gutil.PluginError('mvn-install', err));
+            stream.emit('error', new gutil.PluginError('grails-plugin-install', err));
           } else {
             cb();
           }

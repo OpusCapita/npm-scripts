@@ -49,21 +49,20 @@ function addFiles(files) {
 }
 
 /**
- * Exports grails tasks
+ * Exports gulp task for package of assets to Grails 2 plugin.
  *
- * @param gulp - gulp instance
+ * @param gulp - A gulp instance
+ * @param config - The script configuration
  */
 module.exports = function (gulp, config) {
-
   if (!config.grails || !config.maven) {
-    throw new gutil.PluginError('plugin-package', 'Grails and Maven sections not found in package.json!');
+    throw new gutil.PluginError('grails-plugin-package', 'Grails and Maven sections not found in package.json!');
   }
 
   gulp.task('grails-plugin-package', function () {
-    var release = (process.argv.indexOf("--release") > -1);
     var name = pluginName(config.maven.artefactId);
-
     var pluginPrefix = capitalize(name);
+    var release = (process.argv.indexOf("--release") > -1);
     var mavenArtefactVersion = util.getMavenArtefactVersion(config.version, release);
 
     var pluginFiles = [];
