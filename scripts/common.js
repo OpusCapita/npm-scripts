@@ -30,7 +30,7 @@ function getMavenArtefactName(artefactId, version) {
  * Builds Grails 3 maven artefact name.
  */
 function getGrails3MavenArtefactName(artefactId, version) {
-  return artefactId + '-' + version + '.jst';
+  return artefactId + '-' + version + '.jar';
 }
 
 /**

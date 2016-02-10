@@ -1,7 +1,7 @@
 {
   "name": "jcatalog-dev-tools",
   "version": "1.0.0",
-  "description": "Provides dev tools",
+  "description": "Provides dev tool scripts",
   "main": "index.js",
   "private": "true",
   "scripts": {
