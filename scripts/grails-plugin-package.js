@@ -63,7 +63,7 @@ module.exports = function (gulp, config) {
     var name = pluginName(config.maven.artefactId);
     var pluginPrefix = capitalize(name);
     var release = (process.argv.indexOf("--release") > -1);
-    var mavenArtefactVersion = util.getMavenArtefactVersion(config.version, release);
+    var mavenArtefactVersion = util.getMavenArtefactVersion(config.maven.version, release);
 
     var pluginFiles = [];
 

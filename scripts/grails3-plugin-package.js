@@ -40,7 +40,7 @@ module.exports = function (gulp, config) {
 
   gulp.task('grails3-plugin-package', function () {
     var release = (process.argv.indexOf("--release") > -1);
-    var mavenArtefactVersion = util.getMavenArtefactVersion(config.version, release);
+    var mavenArtefactVersion = util.getMavenArtefactVersion(config.maven.version, release);
 
     var pluginFiles = [];
     for (var resId in config.grails.resources) {

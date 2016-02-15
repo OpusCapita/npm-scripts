@@ -43,7 +43,7 @@ module.exports = function (gulp, config) {
       });
     };
 
-    var version = util.getMavenArtefactVersion(config.version);
+    var version = util.getMavenArtefactVersion(config.maven.version);
     var filepath = path.join('./build', util.getMavenArtefactName(config.maven.artefactId, version));
 
     gulp.src(filepath)

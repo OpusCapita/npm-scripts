@@ -45,16 +45,18 @@ function getGrails3MavenArtefactName(artefactId, version) {
  * todo: It's necessary to reimplement function in order to build version of artefact right (to depend on branch name).
  */
 function getMavenArtefactVersion(version, release) {
-  var branch = git.branch();
-  release = typeof release !== 'undefined' ? release : false;
+  return version;
 
-  gutil.log('The current branch name:', gutil.colors.magenta(branch));
+  //var branch = git.branch();
+  //release = typeof release !== 'undefined' ? release : false;
+
+  //gutil.log('The current branch name:', gutil.colors.magenta(branch));
   //if (branch.indexOf('master') !== -1) {
-    if (release) {
-      var patch = semver.patch(version);
-      return semver.major(version) + '.' + semver.minor(version) + '.GA' + (patch !== 0 ? '.' + patch : '');
-    }
-    return semver.major(version) + '.' + semver.minor(version) + '-SNAPSHOT';
+  //  if (release) {
+  //    var patch = semver.patch(version);
+  //    return semver.major(version) + '.' + semver.minor(version) + '.GA' + (patch !== 0 ? '.' + patch : '');
+  //  }
+  //  return semver.major(version) + '.' + semver.minor(version) + '-SNAPSHOT';
   //}
   //throw new gutil.PluginError('getMavenArtefactVersion', 'Not implemented for bugfix branch yet!');
 }

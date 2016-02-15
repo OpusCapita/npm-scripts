@@ -57,7 +57,7 @@ module.exports = function (gulp, config) {
       });
     };
 
-    var version = util.getMavenArtefactVersion(config.version, release);
+    var version = util.getMavenArtefactVersion(config.maven.version, release);
     var filepath = path.join('./build', util.getGrails3MavenArtefactName(config.maven.artefactId, version));
 
     gulp.src(filepath)
