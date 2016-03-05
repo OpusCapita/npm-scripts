@@ -48,10 +48,11 @@ function addFiles(files) {
   });
 }
 
-handlebars.registerHelper('isArray', function(resource) {
+function isArray(resource) {
   return Object.prototype.toString.call( resource ) === '[object Array]';
-});
+}
 
+handlebars.registerHelper('isArray', isArray);
 
 handlebars.registerHelper('join', function(resources) {
   return resources.join();
