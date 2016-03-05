@@ -48,6 +48,15 @@ function addFiles(files) {
   });
 }
 
+handlebars.registerHelper('isArray', function(resource) {
+  return Object.prototype.toString.call( resource ) === '[object Array]';
+});
+
+
+handlebars.registerHelper('join', function(resources) {
+  return resources.join();
+});
+
 /**
  * Exports gulp task for package of assets to Grails 2 plugin.
  *
