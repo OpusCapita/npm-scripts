@@ -129,11 +129,20 @@ module.exports = function (gulp, config) {
 
     for (var resId in config.grails.resources) {
       var resource = config.grails.resources[resId];
-      for (var i = 0; i < resource.length; i++) {
-        var content = fs.readFileSync('./build/' + resource[i].file.name).toString();
-        pluginFiles.push(
-          createFile('web-app/js/' + resource[i].file.name, content)
-        )
+      if(isArray(resource)) {
+        for (var i = 0; i < resource.length; i++) {
+          var content = fs.readFileSync('./build/' + resource[i].file.name).toString();
+          pluginFiles.push(
+            createFile('web-app/js/' + resource[i].file.name, content)
+          )
+        }
+      } else {
+        for (var i = 0; i < resource.files.length; i++) {
+          var content = fs.readFileSync('./build/' + resource.files[i]).toString();
+          pluginFiles.push(
+            createFile('web-app/js/' + resource.files[i], content)
+          )
+        }
       }
     }
 
