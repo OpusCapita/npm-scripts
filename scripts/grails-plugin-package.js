@@ -146,6 +146,25 @@ module.exports = function (gulp, config) {
       }
     }
 
+    for (var standaloneId in config.grails.standaloneFiles) {
+      var stanalone = config.grails.standaloneFiles[standaloneId];
+      if(isArray(stanalone)) {
+        for (var i = 0; i < stanalone.length; i++) {
+          var content = fs.readFileSync('./build/' + stanalone[i].file.name).toString();
+          pluginFiles.push(
+            createFile('web-app/' + stanalone[i].file.name, content)
+          )
+        }
+      } else {
+        for (var i = 0; i < stanalone.files.length; i++) {
+          var content = fs.readFileSync('./build/' + stanalone.files[i]).toString();
+          pluginFiles.push(
+            createFile('web-app/' + stanalone.files[i], content)
+          )
+        }
+      }
+    }
+
     var javaSrcs = globule.find(config.grails.javaSrc + '/**/*.js');
     for (var i = 0; i < javaSrcs.length; i++) {
       var file = javaSrcs[i];
