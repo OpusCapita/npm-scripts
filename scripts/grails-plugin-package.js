@@ -173,13 +173,13 @@ module.exports = function (gulp, config) {
       )
     }
 
-    var doc = globule.find('./esdoc/**/*.*');
-    for (var i = 0; i < doc.length; i++) {
-      var file = doc[i];
-      pluginFiles.push(
-        createFile('web-app/docs/' + path.relative('./esdoc', file), fs.readFileSync(file).toString())
-      )
-    }
+    // var doc = globule.find('./esdoc/**/*.*');
+    // for (var i = 0; i < doc.length; i++) {
+    //   var file = doc[i];
+    //   pluginFiles.push(
+    //     createFile('web-app/docs/' + path.relative('./esdoc', file), fs.readFileSync(file).toString())
+    //   )
+    // }
 
     return gulp.src([])
       .pipe(addFiles(pluginFiles))
