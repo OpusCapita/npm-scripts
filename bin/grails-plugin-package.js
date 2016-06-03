@@ -44,7 +44,9 @@ handlebars.registerHelper('join', function (resources) {
   return resources.join();
 });
 
-var pluginPrefix = lodash.capitalize(name);
+var pluginPrefix = lodash.map(name.split('-'), function (item) {
+  return lodash.capitalize(item);
+}).join('');
 
 //create zip archive
 var archiver = require('archiver');
