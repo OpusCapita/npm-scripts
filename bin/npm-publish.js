@@ -19,6 +19,13 @@ program.on('--help', function () {
 
 program.parse(process.argv);
 
+//override default date format and change timestamp of current revision to now time
+fluidPublish.convertToISO8601 = function(timestamp) {
+  var date = new Date().toISOString();
+  //remove {':', '-'} symbols from format because npm publish doesn't work
+  return date.split(':').join('').split('-').join('');
+};
+
 if (program.release) {
   fluidPublish.standard(program.test, {
     "pushVCTagCmd": "git push origin v${version}",
@@ -26,7 +33,7 @@ if (program.release) {
   });
 } else {
   fluidPublish.dev(program.test, {
-    "devVersion": "${version}.${timestamp}",
+    "devVersion": "${version}-${preRelease}.${timestamp}",
     "devTag": "SNAPSHOT",
     "publishCmd": "npm publish -f",
     // "changesCmd": "printf ''"
