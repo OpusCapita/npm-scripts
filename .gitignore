@@ -2,5 +2,3 @@
 *.iml
 .idea
 node_modules
-build
-dist
