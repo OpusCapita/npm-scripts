@@ -2,6 +2,10 @@
 
 var program = require('commander');
 var fluidPublish = require('fluid-publish');
+var path = require('path');
+var fs = require('fs');
+var lodash = require('lodash');
+var execSync = require("child_process").execSync;
 
 program
   .version(require('../package.json').version)
@@ -27,6 +31,75 @@ fluidPublish.convertToISO8601 = function(timestamp) {
 };
 
 if (program.release) {
+  function parseLog (results) {
+    function metadata (log, value) {
+      var lines = value.split('\n')
+      log.commit = lines[0].split(' ')[1]
+      log.author = lines[1].split(':')[1].trim()
+      log.date = lines[2].slice(8)
+      return log
+    }
+    var arr = results.split('\n\n').filter(Boolean)
+    var len = arr.length
+    var i = 0
+
+    var data = []
+    var log = {}
+
+    while (i < len) {
+      var value = arr[i++]
+
+      if (value.charAt(0) !== ' ') {
+        log = metadata(log, value)
+        data.push(log)
+      } else {
+        log.message = value.trim()
+        log = {}
+      }
+    }
+
+    return data
+  }
+
+  if (!program.test) {
+    var currentPath = process.cwd();
+    var version = require(path.join(currentPath, 'package.json')).version;
+    //generate release notes and flush to CHANGES.txt
+    var buff = '\nRelease ' + version + ' ' + new Date().toString() + '\n';
+    buff += '=======================================================\n\n';
+
+    var tags = execSync('git tag').toString().split('\n');
+    var tag = tags.length > 1 ? tags[tags.length-2] : null;
+
+    var logs = parseLog(execSync(tag ? 'git log ' + tag + '..HEAD' : 'git log').toString())
+
+    var changesMessage = 'Updated CHANGES.txt';
+
+    if (logs.length > 0 && logs[0].message !== changesMessage) {
+      lodash.forEach(logs, function (item) {
+        //skip updated message from report
+        if (item.message !== changesMessage) {
+          buff += ' - ' + item.message + ' (' + item.author + ', ' + item.date + ')\n';
+        }
+      });
+
+      var changesPath = path.join(currentPath, 'CHANGES.txt');
+
+      if (fs.existsSync(changesPath)) {
+        buff += fs.readFileSync(changesPath);
+      }
+
+      var fd = fs.openSync(changesPath, 'w+');
+
+      fs.writeSync(fd, buff, 0, buff.length);
+      fs.closeSync(fd);
+
+      execSync('git add CHANGES.txt');
+      execSync('git commit -m \'' + changesMessage + '\'');
+    }
+  }
+
+
   fluidPublish.standard(program.test, {
     "pushVCTagCmd": "git push origin v${version}",
     // "changesCmd": "printf ''"
