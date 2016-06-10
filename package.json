@@ -2,12 +2,15 @@
   "name": "jcatalog-dev-tools",
   "version": "2.0.0",
   "description": "Provides dev tool scripts",
-  "private": "true",
   "bin": {
     "grails-plugin-package": "./bin/grails-plugin-package.js",
     "grails-plugin-deploy": "./bin/grails-plugin-deploy.js",
     "grails-plugin-install": "./bin/grails-plugin-install.js",
     "npm-publish": "./bin/npm-publish.js"
+  },
+  "scripts": {
+    "publish-snapshot": "node ./bin/npm-publish.js",
+    "publish-release": "node ./bin/npm-publish.js --release"
   },
   "repository": {
     "type": "git",
