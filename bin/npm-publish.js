@@ -63,7 +63,8 @@ if (program.release) {
 
   if (!program.test) {
     var currentPath = process.cwd();
-    var version = require(path.join(currentPath, 'package.json')).version;
+    var packageFilename = path.join(currentPath, 'package.json');
+    var version = require(packageFilename).version;
     //generate release notes and flush to CHANGES.txt
     var buff = '\nRelease ' + version + ' ' + new Date().toString() + '\n';
     buff += '=======================================================\n\n';
@@ -71,11 +72,13 @@ if (program.release) {
     var tags = execSync('git tag').toString().split('\n');
     var tag = tags.length > 1 ? tags[tags.length-2] : null;
 
-    var logs = parseLog(execSync(tag ? 'git log ' + tag + '..HEAD' : 'git log').toString())
+    var logs = parseLog(execSync(tag ? 'git log ' + tag + '..HEAD' : 'git log').toString());
 
     var changesMessage = 'Updated CHANGES.txt';
+    var updatingVersionMessage = 'Updating to a version ';
 
-    if (logs.length > 0 && logs[0].message !== changesMessage) {
+    if (logs.length > 0 && logs[0].message !== changesMessage
+      && logs[0].message.indexOf(updatingVersionMessage) === -1) {
       lodash.forEach(logs, function (item) {
         //skip updated message from report
         if (item.message !== changesMessage) {
@@ -97,6 +100,22 @@ if (program.release) {
       execSync('git add CHANGES.txt');
       execSync('git commit -m \'' + changesMessage + '\'');
     }
+
+    var vNumbers = version.split(".");
+    var lastNumber = parseInt(vNumbers[vNumbers.length - 1], 10);
+    vNumbers[vNumbers.length - 1] = lastNumber + 1;
+    var targetVersion = vNumbers.join('.');
+
+    var VERSION_REGEXP = new RegExp(
+      '([\'|\"]?version[\'|\"]?[ ]*:[ ]*[\'|\"]?)[\\d||A-a|.|-]*([\'|\"]?)', 'gi');
+
+    var packageData = fs.readFileSync(packageFilename).toString();
+    packageData = packageData.replace(VERSION_REGEXP, "\"version\": \"" + targetVersion + "\"");
+    fs.writeFileSync(packageFilename, packageData);
+
+    execSync('git add package.json');
+    execSync('git commit -m \'' + updatingVersionMessage + targetVersion + '\'');
+    execSync('git push');
   }
 
 
