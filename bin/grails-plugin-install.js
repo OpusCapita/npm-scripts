@@ -36,7 +36,13 @@ if (!program.release) {
 var buildPath = path.join(projectPath, 'build');
 var filePath = path.join(buildPath, 'grails-plugin.zip');
 
-var commandName = 'mvn -B install:install-file -Dfile=' + filePath
+var cmdFile = 'mvn';
+
+if (/^win/.test(process.platform)) {
+  cmdFile = 'mvn.bat';
+}
+
+var commandName = cmdFile + ' -B install:install-file -Dfile=' + filePath
   + ' -DgroupId=com.jcatalog.grailsplugins -DartifactId=' + name
   + ' -Dversion=' + version + ' -Dpackaging=zip';
 
