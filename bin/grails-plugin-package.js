@@ -27,6 +27,7 @@ var projectPath = process.cwd();
 var project = require(path.join(projectPath, 'package.json'));
 var version = project.version;
 var name = project.name;
+var artefactId = project.grails.artefactId || name;
 
 if (!program.release) {
   version += '-SNAPSHOT';
@@ -64,9 +65,9 @@ archive.pipe(output);
 //adding application.properties
 archive.append(
   handlebars.compile(fs.readFileSync(__dirname + '/../templates/application.hbs').toString())({
-    grailsVersion: project.grails.version || '',
+    grailsVersion: project.grails.version || '2.4.4',
     app: {
-      name: name,
+      name: artefactId,
       version: version
     }
   }), {name: 'application.properties'}
@@ -82,7 +83,7 @@ archive.append(
     title: 'Auto-generated for ' + name,
     description: project.description || '',
     version: version,
-    artefactId: name
+    artefactId: artefactId
   }), {name: 'plugin.xml'}
 );
 
@@ -103,50 +104,30 @@ archive.append(
 archive.append(
   handlebars.compile(fs.readFileSync(__dirname + '/../templates/modules.hbs').toString())({
     resources: project.grails.resources,
-    pluginName: name
+    pluginName: artefactId
   }), {name: 'grails-app/conf/' + pluginPrefix + 'Resources.groovy'}
 );
 
 for (var resId in project.grails.resources) {
   var resource = project.grails.resources[resId];
 
-  if (lodash.isArray(resource)) {
-    lodash.forEach(resource,
-      function (resource) {
-        archive.append(fs.readFileSync('./build/' + resource.file.name).toString(), {name: 'web-app/js/' + resource.file.name});
-      }
-    );
-  } else {
-    lodash.forEach(resource.files,
-      function (file) {
-        archive.append(fs.readFileSync('./build/' + file).toString(), {name: 'web-app/js/' + file});
-      }
-    );
+  if (resource) {
+    for (var filepath in resource) {
+      var target = resource[filepath];
+      archive.append(fs.readFileSync('./build/' + filepath).toString(), {name: target});
+    }
   }
 }
 //adding standalone files
 for (var standaloneId in project.grails.standaloneFiles) {
   var stanalone = project.grails.standaloneFiles[standaloneId];
-  if (lodash.isArray(stanalone)) {
-    lodash.forEach(stanalone,
-      function (item) {
-        archive.append(fs.readFileSync('./build/' + item.file.name).toString(), {name: 'web-app/' + item.file.name});
-      }
-    );
-  } else {
-    lodash.forEach(stanalone,
-      function (file) {
-        archive.append(fs.readFileSync('./build/' + file).toString(), {name: 'web-app/' + file});
-      }
-    );
+
+  if (stanalone) {
+    for (var filepath in stanalone) {
+      var target = stanalone[filepath];
+      archive.append(fs.readFileSync('./build/' + filepath).toString(), {name: target});
+    }
   }
 }
-//adding javascript resources
-lodash.forEach(
-  globule.find(project.grails.javaSrc + '/**/*.js'),
-  function (file) {
-    archive.append(fs.createReadStream(file), {name: path.join('src', 'java', path.relative(project.grails.javaSrc, file))})
-  }
-);
 
 archive.finalize();
