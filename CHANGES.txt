@@ -1,4 +1,10 @@
 
+Release 2.0.4 Mon Jun 20 2016 14:58:28 GMT+0300 (MSK)
+=======================================================
+
+ - Fixing version (Dmitry Divin <dmitry.divin@jcatalog.com>, Mon Jun 20 14:57:56 2016 +0300)
+ - Fixing publish version to npm public repo (Dmitry Divin <dmitry.divin@jcatalog.com>, Mon Jun 20 14:56:09 2016 +0300)
+
 Release 2.0.0 Fri Jun 10 2016 10:36:55 GMT+0300 (MSK)
 =======================================================
 
