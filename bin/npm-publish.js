@@ -61,10 +61,14 @@ if (program.release) {
     return data
   }
 
+  var changesMessage = 'Updated CHANGES.txt';
+  var updatingVersionMessage = 'Updating to a version ';
+
+  var currentPath = process.cwd();
+  var packageFilename = path.join(currentPath, 'package.json');
+  var version = require(packageFilename).version;
+
   if (!program.test) {
-    var currentPath = process.cwd();
-    var packageFilename = path.join(currentPath, 'package.json');
-    var version = require(packageFilename).version;
     //generate release notes and flush to CHANGES.txt
     var buff = '\nRelease ' + version + ' ' + new Date().toString() + '\n';
     buff += '=======================================================\n\n';
@@ -73,9 +77,6 @@ if (program.release) {
     var tag = tags.length > 1 ? tags[tags.length-2] : null;
 
     var logs = parseLog(execSync(tag ? 'git log ' + tag + '..HEAD' : 'git log').toString());
-
-    var changesMessage = 'Updated CHANGES.txt';
-    var updatingVersionMessage = 'Updating to a version ';
 
     if (logs.length > 0 && logs[0].message !== changesMessage
       && logs[0].message.indexOf(updatingVersionMessage) === -1) {
@@ -100,7 +101,16 @@ if (program.release) {
       execSync('git add CHANGES.txt');
       execSync('git commit -m \'' + changesMessage + '\'');
     }
+    execSync('git push');
+  }
 
+
+  fluidPublish.standard(program.test, {
+    "pushVCTagCmd": "git push origin v${version}",
+    // "changesCmd": "printf ''"
+  });
+
+  if (!program.test) {
     var vNumbers = version.split(".");
     var lastNumber = parseInt(vNumbers[vNumbers.length - 1], 10);
     vNumbers[vNumbers.length - 1] = lastNumber + 1;
@@ -117,12 +127,6 @@ if (program.release) {
     execSync('git commit -m \'' + updatingVersionMessage + targetVersion + '\'');
     execSync('git push');
   }
-
-
-  fluidPublish.standard(program.test, {
-    "pushVCTagCmd": "git push origin v${version}",
-    // "changesCmd": "printf ''"
-  });
 } else {
   fluidPublish.dev(program.test, {
     "devVersion": "${version}-${preRelease}.${timestamp}",
