@@ -37,7 +37,8 @@ if (!program.release) {
   console.log('package release grails plugin')
 }
 
-var buildPath = path.join(projectPath, 'build');
+var buildDir = project.grails.buildDir || 'build';
+var buildPath = path.join(projectPath, buildDir);
 
 handlebars.registerHelper('isArray', lodash.isArray);
 
@@ -101,33 +102,35 @@ archive.append(
 );
 
 //adding resources
+var resources = {};
+for (var resId in project.grails.resources) {
+  var resource = project.grails.resources[resId];
+
+  var res = { dependsOn: resource.dependsOn, files: [] };
+  
+  if (resource && resource.files) {
+    for (var filepath in resource.files) {
+      var target = resource.files[filepath];
+      res.files.push(target);
+
+      archive.append(fs.readFileSync(path.join(buildDir, filepath)).toString(), {name: path.join('web-app', target)});
+    }
+  }
+
+  resources[resId] = res;
+}
 archive.append(
   handlebars.compile(fs.readFileSync(__dirname + '/../templates/modules.hbs').toString())({
-    resources: project.grails.resources,
+    resources: resources,
     pluginName: artefactId
   }), {name: 'grails-app/conf/' + pluginPrefix + 'Resources.groovy'}
 );
 
-for (var resId in project.grails.resources) {
-  var resource = project.grails.resources[resId];
 
-  if (resource) {
-    for (var filepath in resource) {
-      var target = resource[filepath];
-      archive.append(fs.readFileSync('./build/' + filepath).toString(), {name: target});
-    }
-  }
-}
 //adding standalone files
 for (var standaloneId in project.grails.standaloneFiles) {
   var stanalone = project.grails.standaloneFiles[standaloneId];
-
-  if (stanalone) {
-    for (var filepath in stanalone) {
-      var target = stanalone[filepath];
-      archive.append(fs.readFileSync('./build/' + filepath).toString(), {name: target});
-    }
-  }
+  archive.append(fs.readFileSync(path.join(buildDir, standaloneId)).toString(), {name: path.join('web-app', stanalone)});
 }
 
 archive.finalize();

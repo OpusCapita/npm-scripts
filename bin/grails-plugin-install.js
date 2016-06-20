@@ -33,7 +33,8 @@ if (!program.release) {
   console.log('install release grails plugin to local repository')
 }
 
-var buildPath = path.join(projectPath, 'build');
+var buildDir = project.grails.buildDir || 'build';
+var buildPath = path.join(projectPath, buildDir);
 var filePath = path.join(buildPath, 'grails-plugin.zip');
 
 var cmdFile = 'mvn';

@@ -77,7 +77,8 @@ var projectPath = process.cwd();
 var repositories = retrieveRepositoriesInfo();
 
 var project = require(path.join(projectPath, 'package.json'));
-var filePath = path.join(path.join(projectPath, 'build'), 'grails-plugin.zip');
+var buildDir = project.grails.buildDir || 'build';
+var filePath = path.join(path.join(projectPath, buildDir), 'grails-plugin.zip');
 var name = project.name;
 var version = program.release ? project.version : `${project.version}-SNAPSHOT`;
 
