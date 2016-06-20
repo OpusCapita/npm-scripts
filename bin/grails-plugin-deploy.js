@@ -85,7 +85,11 @@ var targetRepository = program.release ? repositories.releases : repositories.sn
 
 console.log(`deploying grails plugin ${program.release ? 'release' : 'snapshot'} version ${version}`);
 
-var cmdFile = "mvn"
+var cmdFile = 'mvn';
+
+if (/^win/.test(process.platform)) {
+  cmdFile = 'mvn.bat';
+}
 
 var result = spawnSync(cmdFile,
   ['-B', '-e', 'deploy:deploy-file', `-Dfile=${filePath}`,
