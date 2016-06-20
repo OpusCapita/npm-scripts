@@ -1,0 +1,10 @@
+
+Release 2.0.0 Fri Jun 10 2016 10:36:55 GMT+0300 (MSK)
+=======================================================
+
+ - Adding publishing scripts (Alexey Sergeev <alexey.sergeev@jcatalog.com>, Fri Jun 10 10:32:05 2016 +0300)
+ - (CMMN-4844) Refacroting grails plugin deployment script (Alexey Sergeev <alexey.sergeev@jcatalog.com>, Fri Jun 10 10:25:28 2016 +0300)
+ - (CMMN-4844) Generating CHAGNES.txt before release (Dmitry Divin <dmitry.divin@jcatalog.com>, Wed Jun 8 10:01:44 2016 +0300)
+ - (CMMN-4844) Enhancing version for dev branches (Dmitry Divin <dmitry.divin@jcatalog.com>, Fri Jun 3 15:09:53 2016 +0300)
+ - (CMMN-4844) Fixing plugin descriptor name (Dmitry Divin <dmitry.divin@jcatalog.com>, Fri Jun 3 13:56:48 2016 +0300)
+ - (CMMN-4844) Improvement build tool (Dmitry Divin <dmitry.divin@jcatalog.com>, Fri Jun 3 13:32:07 2016 +0300)
