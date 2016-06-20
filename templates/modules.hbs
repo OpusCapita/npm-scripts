@@ -18,14 +18,14 @@ modules = {
     '{{@key}}' {
     {{#if (isArray resource)}}
       {{#each resource}}
-        resource url: [plugin: '{{../../pluginName}}', dir: 'js', file: '{{file.name}}', nominify: true]
+        resource url: [plugin: '{{../../pluginName}}', file: '{{file.name}}', nominify: true]
       {{/each}}
     {{else}}
       {{#if resource.dependsOn}}
         dependsOn '{{join resource.dependsOn}}'
       {{/if}}
       {{#each resource.files as |file|}}
-        resource url: [plugin: '{{../../pluginName}}', dir: 'js', file: '{{file}}', nominify: true]
+        resource url: [plugin: '{{../../pluginName}}', file: '{{file}}', nominify: true]
       {{/each}}
     {{/if}}
     }
