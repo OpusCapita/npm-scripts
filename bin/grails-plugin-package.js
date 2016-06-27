@@ -77,7 +77,7 @@ archive.append(
 //adding plugin information
 archive.append(
   handlebars.compile(fs.readFileSync(__dirname + '/../templates/plugin.hbs').toString())({
-    pluginName: name,
+    pluginName: artefactId,
     pluginPrefix: pluginPrefix,
     author: project.author.name || '',
     email: project.author.email || '',
