@@ -1,6 +1,6 @@
 {
   "name": "jcatalog-dev-tools",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "Provides dev tool scripts",
   "bin": {
     "grails-plugin-package": "./bin/grails-plugin-package.js",
