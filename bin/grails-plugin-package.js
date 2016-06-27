@@ -46,7 +46,7 @@ handlebars.registerHelper('join', function (resources) {
   return resources.join();
 });
 
-var pluginPrefix = lodash.map(name.split('-'), function (item) {
+var pluginPrefix = lodash.map(artefactId.split('-'), function (item) {
   return lodash.capitalize(item);
 }).join('');
 
