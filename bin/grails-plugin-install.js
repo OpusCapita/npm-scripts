@@ -24,6 +24,7 @@ var projectPath = process.cwd();
 var project = require(path.join(projectPath, 'package.json'));
 var version = project.version;
 var name = project.name;
+var artefactId = project.grails.artefactId || name;
 
 if (!program.release) {
   version += '-SNAPSHOT';
@@ -44,7 +45,7 @@ if (/^win/.test(process.platform)) {
 }
 
 var commandName = cmdFile + ' -B install:install-file -Dfile=' + filePath
-  + ' -DgroupId=com.jcatalog.grailsplugins -DartifactId=' + name
+  + ' -DgroupId=com.jcatalog.grailsplugins -DartifactId=' + artefactId
   + ' -Dversion=' + version + ' -Dpackaging=zip';
 
 console.log(commandName);

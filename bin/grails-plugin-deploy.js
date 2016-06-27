@@ -80,6 +80,7 @@ var project = require(path.join(projectPath, 'package.json'));
 var buildDir = project.grails.buildDir || 'build';
 var filePath = path.join(path.join(projectPath, buildDir), 'grails-plugin.zip');
 var name = project.name;
+var artefactId = project.grails.artefactId || name;
 var version = program.release ? project.version : `${project.version}-SNAPSHOT`;
 
 var targetRepository = program.release ? repositories.releases : repositories.snapshots;
@@ -95,7 +96,7 @@ if (/^win/.test(process.platform)) {
 var result = spawnSync(cmdFile,
   ['-B', '-e', 'deploy:deploy-file', `-Dfile=${filePath}`,
    `-Durl=${targetRepository.url}`, `-DrepositoryId=${targetRepository.id}`,
-   '-DgroupId=com.jcatalog.grailsplugins', `-DartifactId=${name}`,
+   '-DgroupId=com.jcatalog.grailsplugins', `-DartifactId=${artefactId}`,
    `-Dversion=${version}`, '-Dpackaging=zip']
 );
 
