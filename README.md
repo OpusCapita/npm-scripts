@@ -42,8 +42,8 @@ for example:
       }
     },
     "standaloneFiles": {
-      "bundles/first.js": "js/standalone/first.js",
-      "bundles/second.js": "js/standalone/second.js"
+      "bundles/first.js": "src/java/first.js",
+      "bundles/second.js": "src/java/second.js"
     }
   }
 }
@@ -51,5 +51,5 @@ for example:
 where:
 artefactId - override artefact ID for grails plugins, by default will be taken from project.name
 external-resources - grails resource ID
-external-resources/files - copy files to webapp from -> to
-standaloneFiles - copy other files to webapp without as grails resources
+external-resources/files - copy files relative web-app dir
+standaloneFiles - copy files relative root dir
