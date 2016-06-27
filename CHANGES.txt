@@ -1,4 +1,10 @@
 
+Release 2.0.8 Mon Jun 27 2016 14:32:18 GMT+0300 (MSK)
+=======================================================
+
+ - Fixing generate plugin prefix (Dmitry Divin <dmitry.divin@jcatalog.com>, Mon Jun 27 14:31:57 2016 +0300)
+ - Updating to a version 2.0.8 (Dmitry Divin <dmitry.divin@jcatalog.com>, Mon Jun 27 13:36:11 2016 +0300)
+
 Release 2.0.7 Mon Jun 27 2016 13:36:10 GMT+0300 (MSK)
 =======================================================
 
