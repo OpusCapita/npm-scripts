@@ -1,0 +1,41 @@
+
+Release 2.0.8 Mon Jun 27 2016 14:32:18 GMT+0300 (MSK)
+=======================================================
+
+ - Fixing generate plugin prefix (Dmitry Divin <dmitry.divin@jcatalog.com>, Mon Jun 27 14:31:57 2016 +0300)
+ - Updating to a version 2.0.8 (Dmitry Divin <dmitry.divin@jcatalog.com>, Mon Jun 27 13:36:11 2016 +0300)
+
+Release 2.0.7 Mon Jun 27 2016 13:36:10 GMT+0300 (MSK)
+=======================================================
+
+ - Fixing copy standalone files (Dmitry Divin <dmitry.divin@jcatalog.com>, Mon Jun 27 13:35:49 2016 +0300)
+ - Updating to a version 2.0.7 (Dmitry Divin <dmitry.divin@jcatalog.com>, Mon Jun 27 12:54:41 2016 +0300)
+
+Release 2.0.6 Mon Jun 27 2016 12:54:40 GMT+0300 (MSK)
+=======================================================
+
+ - Fixing plugin name in plugin.xml (Dmitry Divin <dmitry.divin@jcatalog.com>, Mon Jun 27 12:54:14 2016 +0300)
+ - Documenting dev tools (Dmitry Divin <dmitry.divin@jcatalog.com>, Mon Jun 27 12:40:17 2016 +0300)
+ - Updating to a version 2.0.6 (Dmitry Divin <dmitry.divin@jcatalog.com>, Mon Jun 27 11:15:31 2016 +0300)
+
+Release 2.0.5 Mon Jun 27 2016 11:15:26 GMT+0300 (MSK)
+=======================================================
+
+ - Fixing deploy and install (Dmitry Divin <dmitry.divin@jcatalog.com>, Mon Jun 27 11:11:55 2016 +0300)
+ - Updating to a version 2.0.5 (Dmitry Divin <dmitry.divin@jcatalog.com>, Mon Jun 20 14:58:29 2016 +0300)
+
+Release 2.0.4 Mon Jun 20 2016 14:58:28 GMT+0300 (MSK)
+=======================================================
+
+ - Fixing version (Dmitry Divin <dmitry.divin@jcatalog.com>, Mon Jun 20 14:57:56 2016 +0300)
+ - Fixing publish version to npm public repo (Dmitry Divin <dmitry.divin@jcatalog.com>, Mon Jun 20 14:56:09 2016 +0300)
+
+Release 2.0.0 Fri Jun 10 2016 10:36:55 GMT+0300 (MSK)
+=======================================================
+
+ - Adding publishing scripts (Alexey Sergeev <alexey.sergeev@jcatalog.com>, Fri Jun 10 10:32:05 2016 +0300)
+ - (CMMN-4844) Refacroting grails plugin deployment script (Alexey Sergeev <alexey.sergeev@jcatalog.com>, Fri Jun 10 10:25:28 2016 +0300)
+ - (CMMN-4844) Generating CHAGNES.txt before release (Dmitry Divin <dmitry.divin@jcatalog.com>, Wed Jun 8 10:01:44 2016 +0300)
+ - (CMMN-4844) Enhancing version for dev branches (Dmitry Divin <dmitry.divin@jcatalog.com>, Fri Jun 3 15:09:53 2016 +0300)
+ - (CMMN-4844) Fixing plugin descriptor name (Dmitry Divin <dmitry.divin@jcatalog.com>, Fri Jun 3 13:56:48 2016 +0300)
+ - (CMMN-4844) Improvement build tool (Dmitry Divin <dmitry.divin@jcatalog.com>, Fri Jun 3 13:32:07 2016 +0300)

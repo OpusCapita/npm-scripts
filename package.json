@@ -1,10 +1,16 @@
 {
   "name": "jcatalog-dev-tools",
-  "version": "1.0.1",
+  "version": "2.0.9",
   "description": "Provides dev tool scripts",
-  "main": "index.js",
+  "bin": {
+    "grails-plugin-package": "./bin/grails-plugin-package.js",
+    "grails-plugin-deploy": "./bin/grails-plugin-deploy.js",
+    "grails-plugin-install": "./bin/grails-plugin-install.js",
+    "npm-publish": "./bin/npm-publish.js"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "publish-snapshot": "node ./bin/npm-publish.js",
+    "publish-release": "node ./bin/npm-publish.js --release"
   },
   "repository": {
     "type": "git",
@@ -22,13 +28,14 @@
   },
   "license": "UNLICENSED",
   "dependencies": {
-    "git-rev-sync": "1.6.0",
+    "archiver": "0.14.2",
+    "commander": "2.9.0",
+    "fluid-publish": "1.1.0",
+    "fs-extra": "0.30.0",
     "globule": "0.2.0",
-    "gulp": "3.9.1",
-    "gulp-util": "3.0.7",
-    "gulp-zip": "3.2.0",
     "handlebars": "4.0.5",
-    "require-dir": "0.3.0",
-    "through2": "2.0.1"
+    "homedir": "0.6.0",
+    "lodash": "4.13.1",
+    "xml2js": "0.4.16"
   }
 }
