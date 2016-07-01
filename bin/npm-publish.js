@@ -99,7 +99,7 @@ if (program.release) {
       fs.closeSync(fd);
 
       execSync('git add CHANGES.txt');
-      execSync('git commit -m \'' + changesMessage + '\'');
+      execSync(`git commit -m "${changesMessage}"`);
     }
     execSync('git push');
   }
