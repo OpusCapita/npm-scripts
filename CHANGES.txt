@@ -1,4 +1,12 @@
 
+Release 2.0.9 Fri Jul 01 2016 19:07:10 GMT+0300 (Belarus Standard Time)
+=======================================================
+
+ - Fixing commit command for updating CHANGES.txt (Alexander Frolov <alexander.frolov@jcatalog.com>, Fri Jul 1 19:05:17 2016 +0300)
+ - Merge branch 'dev-CMMN-4844' (3505a1e c432cbe, Alexey Sergeev <alexey.sergeev@jcatalog.com>)
+ - Advancing version after release (Alexey Sergeev <alexey.sergeev@jcatalog.com>, Fri Jun 3 11:40:05 2016 +0300)
+ - Preparing release 1.0.0 (Alexey Sergeev <alexey.sergeev@jcatalog.com>, Fri Jun 3 11:37:35 2016 +0300)
+
 Release 2.0.8 Mon Jun 27 2016 14:32:18 GMT+0300 (MSK)
 =======================================================
 
