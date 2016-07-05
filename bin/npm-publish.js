@@ -62,7 +62,7 @@ if (program.release) {
   }
 
   var changesMessage = 'Updated CHANGES.txt';
-  var updatingVersionMessage = 'Updating to a version ';
+  var updatingVersionMessage = 'Updating to a version to ';
 
   var currentPath = process.cwd();
   var packageFilename = path.join(currentPath, 'package.json');
@@ -107,7 +107,7 @@ if (program.release) {
 
   fluidPublish.standard(program.test, {
     "pushVCTagCmd": "git push origin v${version}",
-    // "changesCmd": "printf ''"
+    "vcTagCmd": "git tag -a v${version} -m \"Tagging the ${version} release\""
   });
 
   if (!program.test) {
@@ -124,7 +124,7 @@ if (program.release) {
     fs.writeFileSync(packageFilename, packageData);
 
     execSync('git add package.json');
-    execSync('git commit -m \'' + updatingVersionMessage + targetVersion + '\'');
+    execSync(`git commit -m "${updatingVersionMessage} ${targetVersion}"`);
     execSync('git push');
   }
 } else {
