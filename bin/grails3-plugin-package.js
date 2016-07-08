@@ -37,7 +37,7 @@ var buildPath = path.join(projectPath, buildDir);
 //create jar archive
 var archiver = require('archiver');
 var output = fs.createWriteStream(path.join(buildPath, 'grails3-plugin.jar'));
-var archive = archiver('jar');
+var archive = archiver('zip');
 output.on('close', function () {
   console.log(archive.pointer() + ' total bytes');
   console.log('archiver has been finalized and the output file descriptor has closed.');
