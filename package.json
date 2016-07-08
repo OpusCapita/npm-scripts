@@ -6,6 +6,9 @@
     "grails-plugin-package": "./bin/grails-plugin-package.js",
     "grails-plugin-deploy": "./bin/grails-plugin-deploy.js",
     "grails-plugin-install": "./bin/grails-plugin-install.js",
+    "grails3-plugin-package": "./bin/grails3-plugin-package.js",
+    "grails3-plugin-deploy": "./bin/grails3-plugin-deploy.js",
+    "grails3-plugin-install": "./bin/grails3-plugin-install.js",
     "npm-publish": "./bin/npm-publish.js"
   },
   "scripts": {
