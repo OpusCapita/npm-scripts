@@ -1,4 +1,16 @@
 
+Release 2.0.11 Fri Jul 08 2016 17:05:37 GMT+0300 (Belarus Standard Time)
+=======================================================
+
+ - (CMMN-4889) Added an ability to package/install/deploy Grails 3 plugins for npm modules. (Michael Pritchin <michael.pritchin@jcatalog.com>, Fri Jul 8 17:04:00 2016 +0300)
+ - Advancing version after publishing release (Alexey Sergeev <alexey.sergeev@jcatalog.com>, Tue Jul 5 16:21:07 2016 +0300)
+ - Fixing GIT commands execution under Windows OS (Alexey Sergeev <alexey.sergeev@jcatalog.com>, Tue Jul 5 16:17:11 2016 +0300)
+ - 2.0.10 (Alexander Frolov <alexander.frolov@jcatalog.com>, Fri Jul 1 19:08:53 2016 +0300)
+ - Fixing commit command for updating CHANGES.txt (Alexander Frolov <alexander.frolov@jcatalog.com>, Fri Jul 1 19:05:17 2016 +0300)
+ - Merge branch 'dev-CMMN-4844' (3505a1e c432cbe, Alexey Sergeev <alexey.sergeev@jcatalog.com>)
+ - Advancing version after release (Alexey Sergeev <alexey.sergeev@jcatalog.com>, Fri Jun 3 11:40:05 2016 +0300)
+ - Preparing release 1.0.0 (Alexey Sergeev <alexey.sergeev@jcatalog.com>, Fri Jun 3 11:37:35 2016 +0300)
+
 Release 2.0.9 Fri Jul 01 2016 19:07:10 GMT+0300 (Belarus Standard Time)
 =======================================================
 
