@@ -20,6 +20,18 @@ grails-plugin-package - package grails plugin
 arguments:
 --release - package plugin as release
 
+grails3-plugin-install - package and install grails 3 plugin to local repository
+arguments:
+--release - install plugin as release
+
+grails3-plugin-deploy - package and install grails 3 plugin to remote repository
+arguments: 
+--release - deploy plugin as release
+
+grails3-plugin-package - package grails 3 plugin
+arguments:
+--release - package plugin as release
+
 Grails plugin configuration
 If you want publish your modules as grails resources, you can add grails section in your package.json
 
