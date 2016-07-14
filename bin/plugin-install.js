@@ -48,7 +48,7 @@ function pluginInstall(config) {
   var cmdFile = 'mvn';
 
   if (/^win/.test(process.platform)) {
-    cmdFile = 'mvn.bat';
+    cmdFile = 'mvn.cmd';
   }
 
   var commandName = cmdFile + ' -B install:install-file -Dfile=' + filePath

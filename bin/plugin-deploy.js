@@ -97,7 +97,7 @@ function pluginDeploy(config) {
   var cmdFile = 'mvn';
 
   if (/^win/.test(process.platform)) {
-    cmdFile = 'mvn.bat';
+    cmdFile = 'mvn.cmd';
   }
 
   var result = spawnSync(cmdFile,
@@ -111,7 +111,8 @@ function pluginDeploy(config) {
     if (result.error.code === 'ENOENT') {
       console.error(`\n${cmdFile}: command is not found\n`);
     }
-    throw result.error;
+    console.error(result.error);
+    process.exit(1);
   } else {
     console.log(result.stdout.toString('utf8'));
   }
