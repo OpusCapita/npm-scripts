@@ -111,8 +111,7 @@ function pluginDeploy(config) {
     if (result.error.code === 'ENOENT') {
       console.error(`\n${cmdFile}: command is not found\n`);
     }
-    console.error(result.error);
-    process.exit(1);
+    throw result.error;
   } else {
     console.log(result.stdout.toString('utf8'));
   }
