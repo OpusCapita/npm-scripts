@@ -61,7 +61,7 @@ function pluginInstall(config) {
     , function (err, stdout, stderr) {
       if (err) {
         if (err.code === 'ENOENT') {
-          console.error('mvn is not installed');
+          console.error(`${cmdFile} is not found`);
         } else {
           console.error(stdout);
           console.error(stderr);
