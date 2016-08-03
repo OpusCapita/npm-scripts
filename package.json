@@ -9,7 +9,8 @@
     "grails3-plugin-package": "./bin/grails3-plugin-package.js",
     "grails3-plugin-deploy": "./bin/grails3-plugin-deploy.js",
     "grails3-plugin-install": "./bin/grails3-plugin-install.js",
-    "npm-publish": "./bin/npm-publish.js"
+    "npm-publish": "./bin/npm-publish.js",
+    "translation-checker": "./bin/translation-checker.js"
   },
   "scripts": {
     "publish-snapshot": "node ./bin/npm-publish.js",
