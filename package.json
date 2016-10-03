@@ -34,8 +34,10 @@
   "dependencies": {
     "archiver": "0.14.2",
     "commander": "2.9.0",
+    "flat": "2.0.1",
     "fluid-publish": "1.1.0",
     "fs-extra": "0.30.0",
+    "glob": "7.1.0",
     "globule": "0.2.0",
     "handlebars": "4.0.5",
     "homedir": "0.6.0",
