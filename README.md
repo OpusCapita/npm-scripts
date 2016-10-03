@@ -1,19 +1,19 @@
 # Dev Tools
-----
+-----------
 
-The tool provide next goals
+Package provides the next goals:
 
 npm-publish - build and publish npm module to local repository
 arguments:
 --test - generate npm package and save as local file
---release - create release, publish the package to local repo and update CHANGES.txt what was changed between releases 
+--release - create release, publish the package to local repo and update CHANGES.txt what was changed between releases
 
 grails-plugin-install - package and install grails plugin to local repository
 arguments:
 --release - install plugin as release
 
 grails-plugin-deploy - package and install grails plugin to remote repository
-arguments: 
+arguments:
 --release - deploy plugin as release
 
 grails-plugin-package - package grails plugin
@@ -25,7 +25,7 @@ arguments:
 --release - install plugin as release
 
 grails3-plugin-deploy - package and install grails 3 plugin to remote repository
-arguments: 
+arguments:
 --release - deploy plugin as release
 
 grails3-plugin-package - package grails 3 plugin
@@ -41,7 +41,7 @@ for example:
   "name": "simple-js",
   "version": "1.0",
   ...
-  
+
   "grails": {
     "artefactId": "simple-js-resources"
     "resources": {
@@ -65,3 +65,6 @@ artefactId - override artefact ID for grails plugins, by default will be taken f
 external-resources - grails resource ID
 external-resources/files - copy files relative web-app dir
 standaloneFiles - copy files relative root dir
+
+To be able to deploy grails plugins you need to have Maven v3.x to be installed
+and mvn (or mvn.cmd under Windows) available in PATH.
