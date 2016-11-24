@@ -36,7 +36,7 @@ Grails plugin configuration
 If you want publish your modules as grails resources, you can add grails section in your package.json
 
 for example:
-
+```
 {
   "name": "simple-js",
   "version": "1.0",
@@ -60,6 +60,7 @@ for example:
     }
   }
 }
+```
 
 where:
 artefactId - override artefact ID for grails plugins, by default will be taken from project.name
