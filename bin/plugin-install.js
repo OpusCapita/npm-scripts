@@ -30,7 +30,7 @@ function pluginInstall(config) {
 
   var project = require(path.join(projectPath, 'package.json'));
   var version = project.version;
-  var name = project.name;
+  var name = project.name.replace(/@\w+\//, '');
   var artefactId = project.grails.artefactId || name;
   var groupId = project.grails.groupId || config.groupId;
 

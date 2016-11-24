@@ -86,7 +86,7 @@ function pluginDeploy(config) {
   var project = require(path.join(projectPath, 'package.json'));
   var buildDir = project.grails.buildDir || 'build';
   var filePath = path.join(path.join(projectPath, buildDir), config.fileName);
-  var name = project.name;
+  var name = project.name.replace(/@\w+\//, '');
   var artefactId = project.grails.artefactId || name;
   var groupId = project.grails.groupId || config.groupId;
   var version = program.release ? project.version : `${project.version}-SNAPSHOT`;
