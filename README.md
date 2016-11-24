@@ -43,7 +43,8 @@ for example:
   ...
 
   "grails": {
-    "artefactId": "simple-js-resources"
+    "artefactId": "simple-js-resources",
+    "groupId":"com.opuscapita.grailsplugins",
     "resources": {
       "external-resources": {
         "dependsOn": ["jquery"],
