@@ -1,7 +1,7 @@
 {
-  "name": "jcatalog-dev-tools",
-  "version": "3.0.0",
-  "description": "Provides dev tool scripts",
+  "name": "@opuscapita/npm-scripts",
+  "version": "1.0.0",
+  "description": "Provides NPM scripts",
   "bin": {
     "grails-plugin-package": "./bin/grails-plugin-package.js",
     "grails-plugin-deploy": "./bin/grails-plugin-deploy.js",
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://buildserver.jcatalog.com/git/jcatalog-dev-tools.git"
+    "url": "https://github.com/OpusCapitaBES/js-npm-scripts"
   },
   "keywords": [
     "jCatalog",
