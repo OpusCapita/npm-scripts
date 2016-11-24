@@ -84,6 +84,7 @@ archive.append(
     email: project.author.email || '',
     title: 'Auto-generated for ' + name,
     description: project.description || '',
+    repositoryUrl: project.repository.url || '',
     version: version,
     artefactId: artefactId
   }), {name: 'plugin.xml'}
@@ -97,6 +98,7 @@ archive.append(
     email: project.author.email || '',
     title: 'Auto-generated for ' + name,
     description: project.description || '',
+    repositoryUrl: project.repository.url || '',
     version: version,
     groupId: groupId
   }), {name: pluginPrefix + 'GrailsPlugin.groovy'}

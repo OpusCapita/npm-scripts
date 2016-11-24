@@ -1,6 +1,6 @@
 {
   "name": "@opuscapita/npm-scripts",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "Provides NPM scripts",
   "bin": {
     "grails-plugin-package": "./bin/grails-plugin-package.js",
@@ -21,7 +21,6 @@
     "url": "https://github.com/OpusCapitaBES/js-npm-scripts"
   },
   "keywords": [
-    "jCatalog",
     "dev",
     "tool",
     "tools"

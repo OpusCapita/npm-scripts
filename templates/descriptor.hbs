@@ -1,15 +1,15 @@
 class {{pluginPrefix}}GrailsPlugin {
     def groupId = "{{groupId}}"
     def version = "{{version}}"
-    def grailsVersion = "2.1 > *"
+    def grailsVersion = "2.4 > *"
 
     def title = "{{title}}"
     def author = "{{author}}"
     def authorEmail = "{{email}}"
     def description = "{{description}}"
 
-    def documentation = "http://buildserver.jcatalog.com/generated-docs/${groupId}/{{groupId}}/${version}/"
+    def documentation = "{{repositoryUrl}}"
 
-    def organization = [name: "jCatalog", url: "http://www.jcatalog.com/"]
+    def organization = [name: "OpusCapita", url: "http://www.opuscapita.com/"]
     def developers = [[name: "{{author}}", email: "{{email}}"]]
 }
