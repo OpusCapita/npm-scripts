@@ -42,7 +42,7 @@ If you want **publish module as grails resources**, you can add grails section i
 
 **Example:**
 
-```
+```json
 {
   "name": "simple-js",
   "version": "1.0",
