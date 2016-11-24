@@ -83,4 +83,4 @@ and mvn (or mvn.cmd under Windows) available in PATH.**
 
 ## License
 
-(OpusCapita 2016)[./LICENSE]
+OpusCapita 2016
