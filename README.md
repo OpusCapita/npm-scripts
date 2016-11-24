@@ -1,4 +1,4 @@
-# NPM Scripts
+# js-npm-scripts
 
 ## Synopsis
 
