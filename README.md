@@ -75,3 +75,12 @@ If you want **publish module as grails resources**, you can add grails section i
 
 **To be able to deploy grails plugins you must to have Maven v3.x to be installed
 and mvn (or mvn.cmd under Windows) available in PATH.**
+
+## Contributors
+
+* Dmitry Divin dmitriy.divin@jcatalog.com
+* Alexey Sergeev alexey.sergeev@jcatalog.com
+
+## License
+
+(OpusCapita 2016)[./LICENSE]
