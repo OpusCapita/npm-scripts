@@ -32,6 +32,7 @@ function pluginInstall(config) {
   var version = project.version;
   var name = project.name;
   var artefactId = project.grails.artefactId || name;
+  var groupId = project.grails.groupId || config.groupId;
 
   if (!program.release) {
     version += '-SNAPSHOT';
@@ -52,7 +53,7 @@ function pluginInstall(config) {
   }
 
   var commandName = cmdFile + ' -B install:install-file -Dfile=' + filePath
-    + ' -DgroupId=' + config.groupId + '-DartifactId=' + artefactId
+    + ' -DgroupId=' + groupId + ' -DartifactId=' + artefactId
     + ' -Dversion=' + version + ' -Dpackaging=' + config.packaging;
 
   console.log(commandName);

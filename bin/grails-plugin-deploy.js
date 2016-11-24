@@ -3,7 +3,7 @@
 var pluginDeploy = require('./plugin-deploy');
 
 pluginDeploy({
-  groupId: 'com.jcatalog.grailsplugins',
+  groupId: 'com.opuscapita.grailsplugins',
   fileName: 'grails-plugin.zip',
   packaging: 'zip'
 });

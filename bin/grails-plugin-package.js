@@ -28,6 +28,7 @@ var project = require(path.join(projectPath, 'package.json'));
 var version = project.version;
 var name = project.name;
 var artefactId = project.grails.artefactId || name;
+var groupId = project.grails.groupId || 'com.opuscapita.grailsplugins';
 
 if (!program.release) {
   version += '-SNAPSHOT';
@@ -97,7 +98,7 @@ archive.append(
     title: 'Auto-generated for ' + name,
     description: project.description || '',
     version: version,
-    groupId: 'com.jcatalog.grailsplugins'
+    groupId: groupId
   }), {name: pluginPrefix + 'GrailsPlugin.groovy'}
 );
 

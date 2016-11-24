@@ -88,6 +88,7 @@ function pluginDeploy(config) {
   var filePath = path.join(path.join(projectPath, buildDir), config.fileName);
   var name = project.name;
   var artefactId = project.grails.artefactId || name;
+  var groupId = project.grails.groupId || config.groupId;
   var version = program.release ? project.version : `${project.version}-SNAPSHOT`;
 
   var targetRepository = program.release ? repositories.releases : repositories.snapshots;
@@ -103,7 +104,7 @@ function pluginDeploy(config) {
   var result = spawnSync(cmdFile,
     ['-B', '-e', 'deploy:deploy-file', `-Dfile=${filePath}`,
       `-Durl=${targetRepository.url}`, `-DrepositoryId=${targetRepository.id}`,
-      '-DgroupId=' + config.groupId, `-DartifactId=${artefactId}`,
+      '-DgroupId=' + groupId, `-DartifactId=${artefactId}`,
       `-Dversion=${version}`, '-Dpackaging=' + config.packaging]
   );
 
