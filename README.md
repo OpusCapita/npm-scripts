@@ -1,4 +1,4 @@
-# js-npm-scripts
+# JS - NPM scripts
 
 ## Synopsis
 Package provides an unified approach for make **npm package** and **grails plugin** releases from **npm packages**.
