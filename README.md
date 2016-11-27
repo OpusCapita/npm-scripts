@@ -5,7 +5,7 @@ Package provides an unified approach for make **npm package** and **grails plugi
 
 ## Usage
 
-### NPM goals
+### NPM Goals
 
 * `npm-publish` - build and publish npm module to local repository
 
