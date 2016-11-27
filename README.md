@@ -37,10 +37,27 @@ Package provides an unified approach for make **npm package** and **grails plugi
 
   `--release` - package plugin as release
 
+### NPM publish example
+
+**package.json**
+
+```json
+...
+"scripts": {
+  ...
+  "npm-build": "rimraf ./lib && webpack --config ./webpack.production.config",
+  "npm-publish": "npm run npm-build && npm-publish",
+  "publish-release": "npm run npm-publish -- --release",
+  "publish-snapshot": "npm run npm-publish",
+  ...
+},
+...
+```
+
 ### Grails plugin configuration
 If you want **publish module as grails resources**, you can add grails section in your **package.json**
 
-**Example:**
+**package.json**
 
 ```json
 {
