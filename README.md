@@ -37,7 +37,7 @@ Package provides an unified approach for make **npm package** and **grails plugi
 
   `--release` - package plugin as release
 
-### Grails plugin configuration
+### Grails Plugin Configuration
 If you want **publish module as grails resources**, you can add grails section in your **package.json**
 
 **Example:**
