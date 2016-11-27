@@ -1,11 +1,11 @@
-# JS - NPM scripts
+# JS - Npm scripts
 
 ## Synopsis
 Package provides an unified approach for make **npm package** and **grails plugin** releases from npm packages.
 
 ## Usage
 
-### NPM goals
+### Npm goals
 
 * `npm-publish` - build and publish npm module to local repository
 
