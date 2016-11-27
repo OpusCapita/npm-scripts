@@ -5,7 +5,7 @@ Package provides an unified approach for make **npm package** and **grails plugi
 
 ## Usage
 
-### NPM Goals
+### NPM goals
 
 * `npm-publish` - build and publish npm module to local repository
 
@@ -37,7 +37,7 @@ Package provides an unified approach for make **npm package** and **grails plugi
 
   `--release` - package plugin as release
 
-### Grails Plugin Configuration
+### Grails plugin configuration
 If you want **publish module as grails resources**, you can add grails section in your **package.json**
 
 **Example:**
