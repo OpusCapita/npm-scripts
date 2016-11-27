@@ -39,49 +39,35 @@ Package provides an unified approach for make **npm package** and **grails plugi
 
 ### NPM publish example
 
-**package.json**
+**package.json / scripts**
 
 ```json
-...
-"scripts": {
-  ...
-  "npm-build": "rimraf ./lib && webpack --config ./webpack.production.config",
-  "npm-publish": "npm run npm-build && npm-publish",
-  "publish-release": "npm run npm-publish -- --release",
-  "publish-snapshot": "npm run npm-publish",
-  ...
-},
-...
+"npm-build": "rimraf ./lib && webpack --config ./webpack.production.config",
+"npm-publish": "npm run npm-build && npm-publish",
+"publish-release": "npm run npm-publish -- --release",
+"publish-snapshot": "npm run npm-publish"
 ```
 
 ### Grails plugin configuration
 If you want **publish module as grails resources**, you can add grails section in your **package.json**
 
-**package.json**
+**package.json / grails**
 
 ```json
-{
-  "name": "simple-js",
-  "version": "1.0",
-  ...
-
-  "grails": {
-    "artefactId": "simple-js-resources",
-    "groupId":"com.opuscapita.grailsplugins",
-    "resources": {
-      "external-resources": {
-        "dependsOn": ["jquery"],
-        "files": {
-          "bundles/first.js": "js/bundles/first.js",
-          "bundles/second.js": "js/bundles/second.js"
-        }
-      }
-    },
-    "standaloneFiles": {
-      "bundles/first.js": "src/java/first.js",
-      "bundles/second.js": "src/java/second.js"
+"artefactId": "simple-js-resources",
+"groupId":"com.opuscapita.grailsplugins",
+"resources": {
+  "external-resources": {
+    "dependsOn": ["jquery"],
+    "files": {
+      "bundles/first.js": "js/bundles/first.js",
+      "bundles/second.js": "js/bundles/second.js"
     }
   }
+},
+"standaloneFiles": {
+  "bundles/first.js": "src/java/first.js",
+  "bundles/second.js": "src/java/second.js"
 }
 ```
 
