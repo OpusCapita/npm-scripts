@@ -39,7 +39,7 @@ Package provides an unified approach for make **npm package** and **grails plugi
 
 ### NPM publish example
 
-**package.json["scripts"]**
+**package.json.scripts:**
 
 ```json
 "npm-build": "rimraf ./lib && webpack --config ./webpack.production.config",
@@ -51,7 +51,7 @@ Package provides an unified approach for make **npm package** and **grails plugi
 ### Grails plugin configuration
 If you want **publish module as grails resources**, you can add grails section in your **package.json**
 
-**package.json["grails"]**
+**package.json.grails:**
 
 ```json
 "artefactId": "simple-js-resources",
