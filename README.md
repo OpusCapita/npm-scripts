@@ -36,6 +36,12 @@ Package provides an unified approach for make **npm package** and **grails plugi
 * `grails3-plugin-package` - package grails 3 plugin
 
   `--release` - package plugin as release
+  
+* `decorate-jenkinsfile` - generate [Jenkinsfile](https://jenkins.io/doc/book/pipeline/jenkinsfile/) from your Jenkinsfile.stages
+
+  It allows to simplify build scripts update across repositories using templates. Templates contains configuration of build status notifications, global tools installed on Jenkins build-server, etc.
+  
+  `--template, -t` - specify template name from [list](./jenkinsfile-templates). Default: [node6-yarn-maven3](./jenkinsfile-templates/node6-yarn-maven3)
 
 ### NPM publish example
 
