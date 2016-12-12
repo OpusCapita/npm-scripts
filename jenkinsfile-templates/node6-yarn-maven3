@@ -23,7 +23,6 @@ node {
       def mvnHome = tool name: 'maven3', type: 'maven'
       env.JAVA_HOME = tool name: 'jdk1.8.0_31', type: 'jdk'
       env.PATH = "${mvnHome}/bin:${yarnHome}/dist/bin:${nodeHome}/bin:${env.PATH}"
-      sh 'npm run decorate-jenkinsfile -- --template node6-yarn-maven3'
     }
     stage('checkout sources') {
       checkout scm
