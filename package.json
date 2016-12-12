@@ -10,7 +10,8 @@
     "grails3-plugin-deploy": "./bin/grails3-plugin-deploy.js",
     "grails3-plugin-install": "./bin/grails3-plugin-install.js",
     "npm-publish": "./bin/npm-publish.js",
-    "translation-checker": "./bin/translation-checker.js"
+    "translation-checker": "./bin/translation-checker.js",
+    "decorate-jenkinsfile": "./bin/decorate-jenkinsfile.js"
   },
   "scripts": {
     "publish-snapshot": "node ./bin/npm-publish.js",
