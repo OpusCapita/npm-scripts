@@ -1,7 +1,7 @@
 {
-  "name": "@opuscapita/npm-scripts",
+  "name": "opuscapita-npm-scripts",
   "version": "1.0.5",
-  "description": "Provides NPM scripts",
+  "description": "OpusCapita npm scripts",
   "bin": {
     "grails-plugin-package": "./bin/grails-plugin-package.js",
     "grails-plugin-deploy": "./bin/grails-plugin-deploy.js",
@@ -16,20 +16,21 @@
     "publish-snapshot": "node ./bin/npm-publish.js",
     "publish-release": "node ./bin/npm-publish.js --release"
   },
+  "homepage": "https://github.com/OpusCapitaBES/js-npm-scripts",
   "repository": {
     "type": "git",
     "url": "https://github.com/OpusCapitaBES/js-npm-scripts"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "license": "Apache-2.0",
   "keywords": [
     "dev",
     "tool",
     "tools"
   ],
-  "author": {
-    "name": "Eugene Viktarovich",
-    "email": "eugene.viktorovich@jcatalog.com"
-  },
-  "license": "UNLICENSED",
+  "license": "Apache-2.0",
   "dependencies": {
     "archiver": "0.14.2",
     "commander": "2.9.0",

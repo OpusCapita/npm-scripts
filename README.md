@@ -1,6 +1,7 @@
-# JS - Npm scripts
+# OpusCapita npm scripts
 
 ## Synopsis
+
 Package provides an unified approach for make **npm package** and **grails plugin** releases from npm packages.
 
 ## Usage
@@ -37,12 +38,6 @@ Package provides an unified approach for make **npm package** and **grails plugi
 
   `--release` - package plugin as release
   
-* `decorate-jenkinsfile` - generate [Jenkinsfile](https://jenkins.io/doc/book/pipeline/jenkinsfile/) from your Jenkinsfile.stages
-
-  It allows to simplify build scripts update across repositories using templates. Templates contains configuration of build status notifications, global tools installed on Jenkins build-server, etc.
-  
-  `--template, -t` - specify template name from [list](./jenkinsfile-templates). Default: [node6-yarn-maven3](./jenkinsfile-templates/node6-yarn-maven3)
-
 ### NPM publish example
 
 **package.json**
@@ -100,4 +95,4 @@ and mvn (or mvn.cmd under Windows) available in PATH.**
 
 ## License
 
-OpusCapita 2016
+**OpusCapita npm-scripts** is licensed under the Apache License, Version 2.0. See [LICENSE](./LICENSE) for the full license text.
