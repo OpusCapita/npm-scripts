@@ -1,4 +1,10 @@
 
+Release 1.0.6 Fri Dec 16 2016 13:42:01 GMT+0300 (+03)
+=======================================================
+
+ - Grails plugin package - fixed failing if author or repository not specified in package.json (kirillvolkovich <kirill.volkovich@jcatalog.com>, Fri Dec 16 13:41:47 2016 +0300)
+ - Updated to v1.0.6 (kirillvolkovich <kirill.volkovich@jcatalog.com>, Wed Dec 14 15:35:30 2016 +0300)
+
 Release 1.0.4 Mon Dec 12 2016 22:29:01 GMT+0300 (MSK)
 =======================================================
 
