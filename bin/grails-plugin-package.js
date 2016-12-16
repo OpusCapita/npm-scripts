@@ -80,11 +80,11 @@ archive.append(
   handlebars.compile(fs.readFileSync(__dirname + '/../templates/plugin.hbs').toString())({
     pluginName: artefactId,
     pluginPrefix: pluginPrefix,
-    author: project.author.name || '',
-    email: project.author.email || '',
+    author: (project.author && project.author.name) || '',
+    email: (project.author && project.author.email) || '',
     title: 'Auto-generated for ' + name,
     description: project.description || '',
-    repositoryUrl: project.repository.url || '',
+    repositoryUrl: (project.repository && project.repository.url) || '',
     version: version,
     artefactId: artefactId
   }), {name: 'plugin.xml'}
@@ -94,11 +94,11 @@ archive.append(
 archive.append(
   handlebars.compile(fs.readFileSync(__dirname + '/../templates/descriptor.hbs').toString())({
     pluginPrefix: pluginPrefix,
-    author: project.author.name || '',
-    email: project.author.email || '',
+    author: (project.author && project.author.name) || '',
+    email: (project.author && project.author.email) || '',
     title: 'Auto-generated for ' + name,
     description: project.description || '',
-    repositoryUrl: project.repository.url || '',
+    repositoryUrl: (project.repository && project.repository.url) || '',
     version: version,
     groupId: groupId
   }), {name: pluginPrefix + 'GrailsPlugin.groovy'}
@@ -110,7 +110,7 @@ for (var resId in project.grails.resources) {
   var resource = project.grails.resources[resId];
 
   var res = { dependsOn: resource.dependsOn, files: [] };
-  
+
   if (resource && resource.files) {
     for (var filepath in resource.files) {
       var target = resource.files[filepath];
