@@ -2,7 +2,7 @@
 
 ## Synopsis
 
-Package provides an unified approach for make **npm package** and **grails plugin** releases from npm packages.
+Package provides an unified release/build approach for **npm package** and **grails plugin** from npm packages.
 
 ## Usage
 
