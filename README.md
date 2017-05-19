@@ -74,7 +74,8 @@ If you want **publish module as grails resources**, you can add grails section i
   },
   "standaloneFiles": {
     "bundles/first.js": "src/java/first.js",
-    "bundles/second.js": "src/java/second.js"
+    "bundles/second.js": "src/java/second.js",
+    "resources/fonts": "web-app/fonts"
   }
 }
 ...
