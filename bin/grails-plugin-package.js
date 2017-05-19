@@ -133,7 +133,13 @@ archive.append(
 //adding standalone files
 for (var standaloneId in project.grails.standaloneFiles) {
   var stanalone = project.grails.standaloneFiles[standaloneId];
-  archive.append(fs.readFileSync(path.join(buildDir, standaloneId)).toString(), {name: stanalone});
+
+  if (fs.lstatSync(path.join(buildDir, standaloneId)).isDirectory()) {
+    // append files from a directory if it's directory
+    archive.directory(path.join(buildDir, standaloneId));
+  } else {
+    archive.append(fs.readFileSync(path.join(buildDir, standaloneId)).toString(), {name: stanalone});
+  }
 }
 
 archive.finalize();
