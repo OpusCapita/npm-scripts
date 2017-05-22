@@ -54,6 +54,7 @@ Package provides an unified release/build approach for **npm package** and **gra
 ```
 
 ### Grails plugin configuration
+
 If you want **publish module as grails resources**, you can add grails section in your **package.json**
 
 **package.json**
@@ -88,6 +89,70 @@ If you want **publish module as grails resources**, you can add grails section i
 
 **To be able to deploy grails plugins you must to have Maven v3.x to be installed
 and mvn (or mvn.cmd under Windows) available in PATH.**
+
+## Maven config example
+
+ **~/.m2/settings.xml**
+ 
+ You **must** replace `[REPLACE]` strings
+ 
+```xml
+<settings>
+  <localRepository>/home/[REPLACE]/.m2/repository</localRepository>
+  <servers>
+    <server>
+      <id>nexus</id>
+      <username>[REPLACE]</username>
+      <password>[REPLACE]</password>
+    </server>
+<server>
+      <id>maven2SnapshotsDeploymentRepositoryId</id>
+      <username>deployment</username>
+      <password>4deployment</password>
+    </server>
+    <server>
+      <id>maven2ReleasesDeploymentRepositoryId</id>
+      <username>deployment</username>
+      <password>4deployment</password>
+    </server>
+    
+  </servers>
+  <profiles>
+    <profile>
+      <id>default</id>
+      <repositories>
+        <repository>
+          <id>nexus</id>
+          <url>http://maven.scand/nexus/content/groups/jcatalog</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>true</enabled> </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>nexus</id>
+          <url>http://maven.scand/nexus/content/groups/jcatalog</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>true</enabled> </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+      <properties>
+        <maven2SnapshotsDeploymentRepositoryId>maven2SnapshotsDeploymentRepositoryId</maven2SnapshotsDeploymentRepositoryId>
+        <maven2SnapshotsDeploymentRepositoryUrl>http://maven.scand/nexus/content/repositories/snapshots</maven2SnapshotsDeploymentRepositoryUrl>
+        <maven2ReleasesDeploymentRepositoryId>maven2ReleasesDeploymentRepositoryId</maven2ReleasesDeploymentRepositoryId>
+        <maven2ReleasesDeploymentRepositoryUrl>http://maven.scand/nexus/content/repositories/releases</maven2ReleasesDeploymentRepositoryUrl>
+        <maven1DeploymentRepositoryId>maven1DeploymentRepositoryId</maven1DeploymentRepositoryId>
+        <maven1DeploymentRepositoryUrl>scpexe://maven.scand/opt/work/maven1/jcatalog</maven1DeploymentRepositoryUrl>
+        <username>developer</username>
+        <projectSiteBaseUrl>http://maven.scand/generated-docs</projectSiteBaseUrl>
+      </properties>
+    </profile>
+  </profiles>
+  <activeProfiles>
+    <activeProfile>default</activeProfile>
+  </activeProfiles>
+</settings>
+```
 
 ## Contributors
 
