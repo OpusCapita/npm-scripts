@@ -1,5 +1,5 @@
 {
-  "name": "opuscapita-npm-scripts",
+  "name": "@opuscapita/npm-scripts",
   "version": "1.0.8",
   "description": "OpusCapita npm scripts",
   "bin": {
@@ -16,10 +16,10 @@
     "publish-snapshot": "node ./bin/npm-publish.js",
     "publish-release": "node ./bin/npm-publish.js --release"
   },
-  "homepage": "https://github.com/OpusCapitaBES/js-npm-scripts",
+  "homepage": "https://github.com/OpusCapita/npm-scripts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/OpusCapitaBES/js-npm-scripts"
+    "url": "https://github.com/OpusCapitaBES/npm-scripts"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
