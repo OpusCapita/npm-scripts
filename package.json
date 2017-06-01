@@ -17,10 +17,7 @@
     "publish-release": "node ./bin/npm-publish.js --release"
   },
   "homepage": "https://github.com/OpusCapita/npm-scripts",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/OpusCapitaBES/npm-scripts"
-  },
+  "repository": "OpusCapita/npm-scripts",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
