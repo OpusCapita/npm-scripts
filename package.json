@@ -29,7 +29,6 @@
     "tool",
     "tools"
   ],
-  "license": "Apache-2.0",
   "dependencies": {
     "archiver": "0.14.2",
     "commander": "2.9.0",
@@ -41,6 +40,7 @@
     "handlebars": "4.0.5",
     "homedir": "0.6.0",
     "lodash": "4.13.1",
+    "semver-sort": "0.0.4",
     "xml2js": "0.4.16"
   }
 }

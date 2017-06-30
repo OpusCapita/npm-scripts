@@ -116,6 +116,7 @@ var changesFileBuff = '';
 var originUrl = execSync('git config --get remote.origin.url').toString();
 var tags = execSync('git tag').toString().split('\n');
 tags.pop(); // remove last empty
+require('semver-sort').asc(tags); // Sort tags by semver
 var changesPath = path.join(currentPath, changelogFileName);
 var tagNamePrev = null;
 
