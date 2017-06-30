@@ -120,7 +120,7 @@ var changesPath = path.join(currentPath, changelogFileName);
 var tagNamePrev = null;
 
 //generate release notes and flush to CHANGELOG.md
-if (fs.existsSync(changesPath)) {
+if (fs.existsSync(changesPath) && !program.all) {
   changesFileBuff = fs.readFileSync(changesPath, {endoding: 'utf-8'});
   if (changesFileBuff.indexOf('## [' + tagName + ']') === -1) {
     // edit CHANGELOG.md
@@ -143,7 +143,7 @@ if (fs.existsSync(changesPath)) {
     buff += getReleaseBody(tags[i], tags[i + 1]) + '\n';
   }
 
-  console.log('Create ' + changelogFileName + '.md ...');
+  console.log('Create ' + changelogFileName + ' ...');
 }
 
 if (buff) {
