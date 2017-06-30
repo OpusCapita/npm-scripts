@@ -55,7 +55,7 @@ function parseLog(results) {
       log = metadata(log, value);
       data.push(log)
     } else {
-      log.message = value.trim();
+      log.message = value.trim().replace(/\s#\s/g, ' > ');
       log = {}
     }
   }
