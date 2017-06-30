@@ -10,9 +10,13 @@ Package provides an unified release/build approach for **npm package** and **gra
 
 * `npm-publish` - build and publish npm module to local repository
 
-  `--test` - generate npm package and save as local file
+  `--test` - generate npm package and save as local file (tarball will be created instead of publishing to NPM)
 
-  `--release` - create release, publish the package to local repo and update CHANGES.txt what was changed between releases
+  `--release` - create release, publish the package to local repo with calling `update-changelog` goal 
+  
+* `update-changelog` - update CHANGELOG.md with changes between releases
+
+  `--all` - completely regenerate CHANGELOG.md with all changes between all releases
 
 * `grails-plugin-install` - package and install grails plugin to local repository
 
