@@ -67,9 +67,9 @@ function getReleaseHeader(tagFrom, tagTo) {
   var compareUrl = '';
   var header = '## [' + tagTo + ']';
 
-  if (originUrl.indexOf('github.com') !== -1) {
+  if (originUrl.indexOf('github.com:') !== -1) {
     // generate github compare url
-    compareUrl = originUrl.replace('git@github.com:', 'https://github.com/').split('.git')[0];
+    compareUrl = 'https://github.com/' + originUrl.split('github.com:')[1].split('.git')[0];
     compareUrl = compareUrl + '/compare/' + tagFrom + '...' + tagTo;
   }
 
