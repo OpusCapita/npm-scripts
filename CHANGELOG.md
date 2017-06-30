@@ -1,3 +1,7 @@
+## [v2.0.0-beta.2](https://github.com/OpusCapita/npm-scripts/compare/v2.0.0-beta.1...v2.0.0-beta.2) (Fri, 30 Jun 2017 15:31:11 GMT)
+ - #7 Removed changes.txt (Sergey Tamkov <tamkov@scand.com>, ea73afd)
+ - #7 Sort tags by semver while generation changelog.md (Sergey Tamkov <tamkov@scand.com>, ea9a708)
+
 ## [v2.0.0-beta.1](https://github.com/OpusCapita/npm-scripts/compare/v2.0.0-beta.0...v2.0.0-beta.1) (Fri, 30 Jun 2017 14:26:24 GMT)
  - #7 Fix displaying commit messages in changelog.md (Sergey Tamkov <tamkov@scand.com>, f498d18)
 
