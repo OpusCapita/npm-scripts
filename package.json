@@ -1,6 +1,6 @@
 {
   "name": "@opuscapita/npm-scripts",
-  "version": "1.0.9",
+  "version": "2.0.0",
   "description": "OpusCapita npm scripts",
   "bin": {
     "grails-plugin-package": "./bin/grails-plugin-package.js",
@@ -10,6 +10,7 @@
     "grails3-plugin-deploy": "./bin/grails3-plugin-deploy.js",
     "grails3-plugin-install": "./bin/grails3-plugin-install.js",
     "npm-publish": "./bin/npm-publish.js",
+    "update-changelog": "./bin/update-changelog.js",
     "translation-checker": "./bin/translation-checker.js"
   },
   "scripts": {
