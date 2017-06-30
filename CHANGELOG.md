@@ -1,3 +1,6 @@
+## [v2.0.0-beta.1](https://github.com/OpusCapita/npm-scripts/compare/v2.0.0-beta.0...v2.0.0-beta.1) (Fri, 30 Jun 2017 14:26:24 GMT)
+ - #7 Fix displaying commit messages in changelog.md (Sergey Tamkov <tamkov@scand.com>, f498d18)
+
 ## [v2.0.0-beta.0](https://github.com/OpusCapita/npm-scripts/compare/v1.0.8...v2.0.0-beta.0) (Fri, 30 Jun 2017 13:59:01 GMT)
  - #7 Fix github compare link generation for changelog.md (Sergey Tamkov <tamkov@scand.com>, 11c7ff8)
  - Merge pull request #9 from OpusCapita/feature/update-changelog
