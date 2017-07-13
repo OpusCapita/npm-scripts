@@ -112,11 +112,24 @@ for (var resId in project.grails.resources) {
   var res = { dependsOn: resource.dependsOn, files: [] };
 
   if (resource && resource.files) {
-    for (var filepath in resource.files) {
-      var target = resource.files[filepath];
-      res.files.push(target);
+    if (lodash.isArray(resource.files)) {
+      resource.files.forEach(function(file) {
+        res.files.push({
+          name: file.target,
+          attrs: file.attrs
+        });
 
-      archive.append(fs.readFileSync(path.join(buildDir, filepath)).toString(), {name: path.join('web-app', target)});
+        archive.append(fs.readFileSync(path.join(buildDir, file.source)).toString(), {name: path.join('web-app', file.target)});
+      })
+    } else if (lodash.isPlainObject(resource.files)) {
+      for (var filepath in resource.files) {
+        var target = resource.files[filepath];
+        res.files.push({
+          name: target
+        });
+
+        archive.append(fs.readFileSync(path.join(buildDir, filepath)).toString(), {name: path.join('web-app', target)});
+      }
     }
   }
 
@@ -130,7 +143,7 @@ archive.append(
 );
 
 
-//adding standalone files
+// adding standalone files
 for (var standaloneId in project.grails.standaloneFiles) {
   var stanalone = project.grails.standaloneFiles[standaloneId];
 
