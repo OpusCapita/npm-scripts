@@ -41,7 +41,9 @@ if (!program.release) {
 var buildDir = project.grails.buildDir || 'build';
 var buildPath = path.join(projectPath, buildDir);
 
+handlebars.registerHelper('isNil', lodash.isNil);
 handlebars.registerHelper('isArray', lodash.isArray);
+handlebars.registerHelper('isBoolean', lodash.isBoolean);
 
 handlebars.registerHelper('join', function (resources) {
   return resources.join();
@@ -109,7 +111,7 @@ var resources = {};
 for (var resId in project.grails.resources) {
   var resource = project.grails.resources[resId];
 
-  var res = { dependsOn: resource.dependsOn, files: [] };
+  var res = { defaultBundle: resource.defaultBundle, dependsOn: resource.dependsOn, files: [] };
 
   if (resource && resource.files) {
     if (lodash.isArray(resource.files)) {

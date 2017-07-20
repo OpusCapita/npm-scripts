@@ -21,6 +21,9 @@ modules = {
     {{#if resource.dependsOn}}
         dependsOn '{{join resource.dependsOn}}'
     {{/if}}
+    {{#unless (isNil resource.defaultBundle)}}
+        defaultBundle {{#if (isBoolean resource.defaultBundle)}}{{resource.defaultBundle}}{{else}}'{{resource.defaultBundle}}'{{/if}}
+    {{/unless}}
     {{#each resource.files}}
         resource url: [plugin: '{{../../pluginName}}', file: '{{name}}', nominify: true]{{#if attrs}},
                 attrs: [{{#if attrs.type}}type: '{{attrs.type}}'{{/if}}]{{/if}}

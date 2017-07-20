@@ -70,6 +70,7 @@ If you want **publish module as grails resources**, you can add grails section i
   "resources": {
     "external-resources": {
       "dependsOn": ["jquery"],
+      "defaultBundle": false,
       "files": {
         "bundles/first.js": "js/bundles/first.js",
         "bundles/second.js": "js/bundles/second.js"
@@ -86,8 +87,12 @@ If you want **publish module as grails resources**, you can add grails section i
 ```
 
 * `artefactId` - override artefact ID for grails plugins, by default will be taken from project.name
-* `external-resources` - grails resource ID
-* `external-resources/files` - copy files relative web-app dir
+* `groupId` - override group ID for grails plugins, by default will be com.opuscapita.grailsplugins
+* `resources` - override artefact ID for grails plugins, by default will be taken from project.name
+    * `external-resources` - grails resource ID
+        * `dependsOn` - list of grails resource module IDs (not required)
+        * `defaultBundle` - string or boolean, defines grails resource module defaultBundle value (not required)
+        * `files` - copy files relative web-app dir
 * `standaloneFiles` - copy files relative root dir
 
 **To be able to deploy grails plugins you must to have Maven v3.x to be installed
