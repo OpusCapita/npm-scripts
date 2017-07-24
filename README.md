@@ -9,7 +9,7 @@ Package provides an unified release/build approach for **npm package** and **gra
 ### Goals
 
 #### npm-publish
-Builds and publishes npm module to local repository
+Updates CHANDELOG.md and publishes npm module (all changes are committed and pushed to GIT repository)
 
 ##### options
 - `npm-publish --test` - generates npm package and saves as local file (tarball will be created instead of publishing to NPM)
