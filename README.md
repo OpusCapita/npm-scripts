@@ -1,3 +1,7 @@
+![badge-npm-version](https://img.shields.io/npm/v/@opuscapita/npm-scripts.svg)
+[![NPM Downloads](https://img.shields.io/npm/dm/@opuscapita/npm-scripts.svg)](https://npmjs.org/package/@opuscapita/npm-scripts)
+![badge-license](https://img.shields.io/github/license/OpusCapita/npm-scripts.svg)
+
 # OpusCapita npm scripts
 
 ## Synopsis
