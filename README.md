@@ -12,8 +12,8 @@ Package provides an unified release/build approach for **npm package** and **gra
 
   `--test` - generate npm package and save as local file (tarball will be created instead of publishing to NPM)
 
-  `--release` - create release, publish the package to local repo with calling `update-changelog` goal 
-  
+  `--release` - create release, publish the package to local repo with calling `update-changelog` goal
+
 * `update-changelog` - update CHANGELOG.md with changes between releases
 
   `--all` - completely regenerate CHANGELOG.md with all changes between all releases
@@ -41,7 +41,7 @@ Package provides an unified release/build approach for **npm package** and **gra
 * `grails3-plugin-package` - package grails 3 plugin
 
   `--release` - package plugin as release
-  
+
 ### NPM publish example
 
 **package.json**
@@ -58,23 +58,22 @@ Package provides an unified release/build approach for **npm package** and **gra
 ```
 
 ### Grails plugin configuration
-If you want **publish module as grails resources**, you can add grails section in your **package.json**
+If you want **publish module as grails resources**, you can add **grails** section in your **package.json**
 
-**package.json**
-
+**package.json (simple resource files definition)**
 ```json
 ...
 "grails": {
   "artefactId": "simple-js-resources",
   "groupId":"com.opuscapita.grailsplugins",
   "resources": {
-    "external-resources": {
+    "simple-resource-module": {
       "dependsOn": ["jquery"],
       "defaultBundle": false,
       "files": {
         "bundles/first.js": "js/bundles/first.js",
         "bundles/second.js": "js/bundles/second.js"
-      }
+      }    
     }
   },
   "standaloneFiles": {
@@ -86,13 +85,40 @@ If you want **publish module as grails resources**, you can add grails section i
 ...
 ```
 
+**package.json (extended resource files definition)**
+```json
+...
+"grails": {
+  "artefactId": "extended-js-resources",
+  "groupId": "com.opuscapita.grailsplugins",
+  "resources": {
+    "complex-resource-module": {
+      "files": [{
+        "source": "bundles/first.js",
+        "target": "js/bundles/first.js",
+        "attrs": {
+          "type": "js"
+        }
+      }, {
+        "source": "bundles/second.js",
+        "target": "js/bundles/second.js",
+        "attrs": {
+          "type": "js"
+        }
+      }]
+    }
+  }
+}
+...
+```
+
 * `artefactId` - override artefact ID for grails plugins, by default will be taken from project.name
 * `groupId` - override group ID for grails plugins, by default will be com.opuscapita.grailsplugins
-* `resources` - override artefact ID for grails plugins, by default will be taken from project.name
-    * `external-resources` - grails resource ID
-        * `dependsOn` - list of grails resource module IDs (not required)
-        * `defaultBundle` - string or boolean, defines grails resource module defaultBundle value (not required)
-        * `files` - copy files relative web-app dir
+* `resources` - defines resource bundles (used Grails Resource plugin) that shpuld be generated
+    * `external-resources` - String, resource unique name/ID
+        * `dependsOn` - Array of grails resource module IDs (not required)
+        * `defaultBundle` - String or Boolean, defines grails resource module defaultBundle value (not required)
+        * `files` - copy files relative web-app dir (should be Object or Array, see examples above)
 * `standaloneFiles` - copy files relative root dir
 
 **To be able to deploy grails plugins you must to have Maven v3.x to be installed
