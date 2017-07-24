@@ -1,3 +1,7 @@
+## [v2.0.0](https://github.com/OpusCapita/npm-scripts/compare/v2.0.0-beta.4...v2.0.0) (Mon, 24 Jul 2017 13:11:35 GMT)
+ - Preparing 2.0.0 release (Alexey Sergeev <sab@scand.com>, d70370d)
+ - Adjusting documentation (Alexey Sergeev <sab@scand.com>, cccbe21)
+
 ## [v2.0.0-beta.4](https://github.com/OpusCapita/npm-scripts/compare/v2.0.0-beta.3...v2.0.0-beta.4) (Mon, 24 Jul 2017 12:40:28 GMT)
  - Removing abandoned grails3 scripts. Adjusting documentation. (Alexey Sergeev <sab@scand.com>, 321f6f1)
 
