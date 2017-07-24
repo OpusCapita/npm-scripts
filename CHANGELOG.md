@@ -1,3 +1,13 @@
+## [v2.0.0-beta.3](https://github.com/OpusCapita/npm-scripts/compare/v2.0.0-beta.2...v2.0.0-beta.3) (Mon, 24 Jul 2017 12:30:34 GMT)
+ - Cleanup dependencies (Alexey Sergeev <sab@scand.com>, 190d312)
+ - Removing yarn.lock (Alexey Sergeev <sab@scand.com>, e369f9f)
+ - Adjusting documentation (Alexey Sergeev <sab@scand.com>, 4e8ad73)
+ - Improved modules.hbs tamplate to provide ability to set attrs for grails resource (#11)
+    
+    Implementing #10
+    - Improved modules.hbs template to provide possibility to set _attr_ for the resource
+    - Improved modules.hbs template to provide possibility to set _defaultBundle_ for the resource. (Alexander Pyrkh <apyrkh-sc@users.noreply.github.com>, 8d0e993)
+
 ## [v2.0.0-beta.2](https://github.com/OpusCapita/npm-scripts/compare/v2.0.0-beta.1...v2.0.0-beta.2) (Fri, 30 Jun 2017 15:31:11 GMT)
  - #7 Removed changes.txt (Sergey Tamkov <tamkov@scand.com>, ea73afd)
  - #7 Sort tags by semver while generation changelog.md (Sergey Tamkov <tamkov@scand.com>, ea9a708)
