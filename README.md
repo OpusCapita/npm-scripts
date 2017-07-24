@@ -6,41 +6,38 @@ Package provides an unified release/build approach for **npm package** and **gra
 
 ## Usage
 
-### Npm goals
+### Goals
 
-* `npm-publish` - build and publish npm module to local repository
+#### npm-publish
+Builds and publishes npm module to local repository
 
-  `--test` - generate npm package and save as local file (tarball will be created instead of publishing to NPM)
+##### options
+- `npm-publish --test` - generates npm package and saves as local file (tarball will be created instead of publishing to NPM)
+- `npm-publish --release` - creates release, publishes the package to local repo with calling `update-changelog` goal
 
-  `--release` - create release, publish the package to local repo with calling `update-changelog` goal
+#### update-changelog
+Updates CHANGELOG.md that contains changes between the releases
 
-* `update-changelog` - update CHANGELOG.md with changes between releases
+##### options
+- `update-changelog --all` - completely regenerate full CHANGELOG.md with all changes between all the releases
 
-  `--all` - completely regenerate CHANGELOG.md with all changes between all releases
+#### grails-plugin-install
+Installs grails plugin to local repository
 
-* `grails-plugin-install` - package and install grails plugin to local repository
+##### options
+- `grails-plugin-install --release` - installs plugin as release
 
-  `--release` - install plugin as release
+#### grails-plugin-deploy
+Deploys grails plugin to remote repository
 
-* `grails-plugin-deploy` - package and install grails plugin to remote repository
+##### options
+- `grails-plugin-deploy --release` - deploys plugin as release
 
-  `--release` - deploy plugin as release
+#### grails-plugin-package
+Packages grails plugin
 
-* `grails-plugin-package` - package grails plugin
-
-  `--release` - package plugin as release
-
-* `grails3-plugin-install` - package and install grails 3 plugin to local repository
-
-  `--release` - install plugin as release
-
-* `grails3-plugin-deploy` - package and install grails 3 plugin to remote repository
-
-  `--release` - deploy plugin as release
-
-* `grails3-plugin-package` - package grails 3 plugin
-
-  `--release` - package plugin as release
+##### options
+- `grails-plugin-package --release` - package plugin as release
 
 ### NPM publish example
 
