@@ -41,7 +41,9 @@ if (!program.release) {
 var buildDir = project.grails.buildDir || 'build';
 var buildPath = path.join(projectPath, buildDir);
 
+handlebars.registerHelper('isNil', lodash.isNil);
 handlebars.registerHelper('isArray', lodash.isArray);
+handlebars.registerHelper('isBoolean', lodash.isBoolean);
 
 handlebars.registerHelper('join', function (resources) {
   return resources.join();
@@ -109,14 +111,27 @@ var resources = {};
 for (var resId in project.grails.resources) {
   var resource = project.grails.resources[resId];
 
-  var res = { dependsOn: resource.dependsOn, files: [] };
+  var res = { defaultBundle: resource.defaultBundle, dependsOn: resource.dependsOn, files: [] };
 
   if (resource && resource.files) {
-    for (var filepath in resource.files) {
-      var target = resource.files[filepath];
-      res.files.push(target);
+    if (lodash.isArray(resource.files)) {
+      resource.files.forEach(function(file) {
+        res.files.push({
+          name: file.target,
+          attrs: file.attrs
+        });
 
-      archive.append(fs.readFileSync(path.join(buildDir, filepath)).toString(), {name: path.join('web-app', target)});
+        archive.append(fs.readFileSync(path.join(buildDir, file.source)).toString(), {name: path.join('web-app', file.target)});
+      })
+    } else if (lodash.isPlainObject(resource.files)) {
+      for (var filepath in resource.files) {
+        var target = resource.files[filepath];
+        res.files.push({
+          name: target
+        });
+
+        archive.append(fs.readFileSync(path.join(buildDir, filepath)).toString(), {name: path.join('web-app', target)});
+      }
     }
   }
 
@@ -130,7 +145,7 @@ archive.append(
 );
 
 
-//adding standalone files
+// adding standalone files
 for (var standaloneId in project.grails.standaloneFiles) {
   var stanalone = project.grails.standaloneFiles[standaloneId];
 

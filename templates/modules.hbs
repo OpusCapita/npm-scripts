@@ -1,33 +1,33 @@
 modules = {
 {{#each resources as |resource|}}
 {{!--
-  Each resource is either
-
-  "module-name": [
-    {"file": {"name": "bundle.js"}}
-  ]
-
-  or
+  Each resource is
 
   "module-name": {
-    "dependsOn": ["rfq-vendors"],   
-    "files": ["bundle.min.js"]
+    "dependsOn": ["rfq-vendors"],
+    "files": [
+      {
+        "name": "bundle.min.js",
+        "attrs": {
+          "type": "js"
+        }
+      }
+    ]
   }
+
 --}}
 
     '{{@key}}' {
-    {{#if (isArray resource)}}
-      {{#each resource}}
-        resource url: [plugin: '{{../../pluginName}}', file: '{{file.name}}', nominify: true]
-      {{/each}}
-    {{else}}
-      {{#if resource.dependsOn}}
+    {{#if resource.dependsOn}}
         dependsOn '{{join resource.dependsOn}}'
-      {{/if}}
-      {{#each resource.files as |file|}}
-        resource url: [plugin: '{{../../pluginName}}', file: '{{file}}', nominify: true]
-      {{/each}}
     {{/if}}
+    {{#unless (isNil resource.defaultBundle)}}
+        defaultBundle {{#if (isBoolean resource.defaultBundle)}}{{resource.defaultBundle}}{{else}}'{{resource.defaultBundle}}'{{/if}}
+    {{/unless}}
+    {{#each resource.files}}
+        resource url: [plugin: '{{../../pluginName}}', file: '{{name}}', nominify: true]{{#if attrs}},
+                attrs: [{{#if attrs.type}}type: '{{attrs.type}}'{{/if}}]{{/if}}
+    {{/each}}
     }
 {{/each}}
 }
