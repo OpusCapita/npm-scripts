@@ -1,3 +1,6 @@
+## [v2.0.0-beta.4](https://github.com/OpusCapita/npm-scripts/compare/v2.0.0-beta.3...v2.0.0-beta.4) (Mon, 24 Jul 2017 12:40:28 GMT)
+ - Removing abandoned grails3 scripts. Adjusting documentation. (Alexey Sergeev <sab@scand.com>, 321f6f1)
+
 ## [v2.0.0-beta.3](https://github.com/OpusCapita/npm-scripts/compare/v2.0.0-beta.2...v2.0.0-beta.3) (Mon, 24 Jul 2017 12:30:34 GMT)
  - Cleanup dependencies (Alexey Sergeev <sab@scand.com>, 190d312)
  - Removing yarn.lock (Alexey Sergeev <sab@scand.com>, e369f9f)
