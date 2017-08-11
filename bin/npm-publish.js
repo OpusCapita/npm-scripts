@@ -1,19 +1,17 @@
 #!/usr/bin/env node
+'use strict';
 
-var program = require('commander');
-var fluidPublish = require('fluid-publish');
-var path = require('path');
-var fs = require('fs');
-var execSync = require("child_process").execSync;
+let program = require('commander');
+let fluidPublish = require('fluid-publish');
+let path = require('path');
+let fs = require('fs');
+let execSync = require("child_process").execSync;
 
 
 function isTag(tag) {
   const tagList = execSync('git tag').toString().split('\n');
-
-  for (let i = 0; i < tagList.length; i++) {
-    if (tagList[i] === tag) {
-      return true;
-    }
+  if (tagList.indexOf(tag) !== -1) {
+    return true;
   }
 
   return false;
@@ -59,14 +57,14 @@ fluidPublish.convertToISO8601 = function(timestamp) {
 };
 
 if (program.release) {
-  var updatingVersionMessage = 'Updating to a version to ';
-  var currentPath = process.cwd();
-  var packageFilename = path.join(currentPath, 'package.json');
-  var currentPackage = require(packageFilename);
-  var version = currentPackage.version;
-  var tag = `v${version}`;
-  var packageName = currentPackage.name;
-  var isSuccessful = true;
+  let updatingVersionMessage = 'Updating to a version to ';
+  let currentPath = process.cwd();
+  let packageFilename = path.join(currentPath, 'package.json');
+  let currentPackage = require(packageFilename);
+  let version = currentPackage.version;
+  let tag = `v${version}`;
+  let packageName = currentPackage.name;
+  let isSuccessful = true;
 
   try {
     fluidPublish.standard(program.test, {
