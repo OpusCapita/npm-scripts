@@ -115,7 +115,7 @@ If you want **publish module as grails resources**, you can add **grails** secti
 
 * `artefactId` - override artefact ID for grails plugins, by default will be taken from project.name
 * `groupId` - override group ID for grails plugins, by default will be com.opuscapita.grailsplugins
-* `resources` - defines resource bundles (used Grails Resource plugin) that shpuld be generated
+* `resources` - defines resource bundles (used Grails Resource plugin) that should be generated
     * `external-resources` - String, resource unique name/ID
         * `dependsOn` - Array of grails resource module IDs (not required)
         * `defaultBundle` - String or Boolean, defines grails resource module defaultBundle value (not required)
