@@ -118,7 +118,8 @@ for (var resId in project.grails.resources) {
       resource.files.forEach(function(file) {
         res.files.push({
           name: file.target,
-          attrs: file.attrs
+          attrs: file.attrs,
+          exclude: file.exclude
         });
 
         archive.append(fs.readFileSync(path.join(buildDir, file.source)).toString(), {name: path.join('web-app', file.target)});
@@ -137,13 +138,57 @@ for (var resId in project.grails.resources) {
 
   resources[resId] = res;
 }
-archive.append(
-  handlebars.compile(fs.readFileSync(__dirname + '/../templates/modules.hbs').toString())({
-    resources: resources,
-    pluginName: artefactId
-  }), {name: 'grails-app/conf/' + pluginPrefix + 'Resources.groovy'}
-);
 
+const generateResources = function(resources, pluginName) {
+  let resourceDefinitions = [];
+  for (var resourceName in resources) {
+    var resourceDefinition = `'${resourceName}' {`;
+    // dependsOn
+    if (resources[resourceName].dependsOn) {
+      if (Array.isArray(resources[resourceName].dependsOn)) {
+        resourceDefinition += `\n dependsOn: '${resources[resourceName].dependsOn.join()}'`;
+      } else {
+        // consider it is a string
+        resourceDefinition += `\n dependsOn: '${resources[resourceName].dependsOn}'`;
+      }
+    }
+    // dependsOn
+    if (resources[resourceName].defaultBundle) {
+        if(typeof(resources[resourceName].defaultBundle) === "boolean"){
+          resourceDefinition += `\n defaultBundle: ${resources[resourceName].defaultBundle}`;
+        } else {
+          // consider it is a string
+          resourceDefinition += `\n defaultBundle: '${resources[resourceName].defaultBundle}'`;
+        }
+    }
+
+    resources[resourceName].files.forEach(function(file) {
+      resourceDefinition += `\n resource url: [plugin: '${pluginName}', file: '${file.name}'], nominify: true`;
+      if (file.attrs) {
+        resourceDefinition += `, attrs: [`;
+        resourceDefinition += Object.keys(file.attrs).map(function(name) {
+          return `${name}:'${file.attrs[name]}'`;
+        }).join();
+        resourceDefinition += "]";
+      }
+      if (file.exclude) {
+        resourceDefinition += `, exclude: '${file.exclude}'`;
+      }
+    });
+
+    resourceDefinition += '\n}';
+    resourceDefinitions.push(resourceDefinition);
+  }
+
+  return `modules = {
+    ${resourceDefinitions.join('\n')}
+}`;
+}
+
+archive.append(
+  generateResources(resources,artefactId)
+  , {name: 'grails-app/conf/' + pluginPrefix + 'Resources.groovy'}
+);
 
 // adding standalone files
 for (var standaloneId in project.grails.standaloneFiles) {

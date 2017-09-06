@@ -95,11 +95,13 @@ If you want **publish module as grails resources**, you can add **grails** secti
   "resources": {
     "complex-resource-module": {
       "files": [{
-        "source": "bundles/first.js",
-        "target": "js/bundles/first.js",
+        "source": "bundles/main.css",
+        "target": "css/main.css",
         "attrs": {
-          "type": "js"
-        }
+          "type": "css",
+          "media": "screen, projection, print"
+         },
+        "exclude": "bundle, minify"
       }, {
         "source": "bundles/second.js",
         "target": "js/bundles/second.js",
