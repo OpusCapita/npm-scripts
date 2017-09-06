@@ -1,3 +1,9 @@
+## [v2.0.1-beta.1](https://github.com/OpusCapita/npm-scripts/compare/v2.0.0...v2.0.1-beta.1) (Wed, 06 Sep 2017 08:55:56 GMT)
+ - Preparing 2.0.1-beta.1 release (Alexey Sergeev <sab@scand.com>, c9bdf71)
+ - Extending Grails plugin Resource configuration. For each file you can specify 'attrs' as object with many properties (not only 'type') which will be converged to Groovy map, also now you have possibility to specify 'exculde' property (String) (Alexey Sergeev <sab@scand.com>, 9f6da63)
+ - Update README.md (Kirill Volkovich <kvolkovich-sc@users.noreply.github.com>, ccf7a27)
+ - Update README.md (Alexey Sergeev <asergeev-sc@users.noreply.github.com>, bfe5034)
+
 ## [v2.0.0](https://github.com/OpusCapita/npm-scripts/compare/v2.0.0-beta.4...v2.0.0) (Mon, 24 Jul 2017 13:11:35 GMT)
  - Preparing 2.0.0 release (Alexey Sergeev <sab@scand.com>, d70370d)
  - Adjusting documentation (Alexey Sergeev <sab@scand.com>, cccbe21)
