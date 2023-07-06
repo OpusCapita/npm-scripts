@@ -1,6 +1,6 @@
 {
   "name": "@opuscapita/npm-scripts",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "OpusCapita npm scripts",
   "bin": {
     "grails-plugin-package": "./bin/grails-plugin-package.js",
