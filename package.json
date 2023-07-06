@@ -1,6 +1,6 @@
 {
   "name": "@opuscapita/npm-scripts",
-  "version": "2.0.1-beta.2",
+  "version": "2.0.1",
   "description": "OpusCapita npm scripts",
   "bin": {
     "grails-plugin-package": "./bin/grails-plugin-package.js",
@@ -29,14 +29,14 @@
   "dependencies": {
     "archiver": "2.0.0",
     "commander": "2.9.0",
-    "flat": "3.0.0",
+    "flat": "^5.0.2",
     "fluid-publish": "1.1.0",
     "glob": "7.1.2",
     "globule": "1.2.0",
-    "handlebars": "4.0.10",
+    "handlebars": "^4.7.7",
     "homedir": "0.6.0",
-    "lodash": "4.13.1",
+    "lodash": "^4.17.21",
     "semver-sort": "0.0.4",
-    "xml2js": "0.4.16"
+    "xml2js": "^0.6.0"
   }
 }
