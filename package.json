@@ -17,8 +17,7 @@
   "homepage": "https://github.com/OpusCapita/npm-scripts",
   "repository": "OpusCapita/npm-scripts",
   "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://nexus-oc.westeurope.cloudapp.azure.com/repository/npm-local/"
   },
   "license": "Apache-2.0",
   "keywords": [
