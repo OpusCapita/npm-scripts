@@ -25,7 +25,7 @@ program.parse(process.argv);
 
 
 var changesMessage = 'Updated ' + changelogFileName;
-var updatingVersionMessage = 'Updating to a version to ';
+var updatingVersionMessage = 'Updating to version ';
 var currentPath = process.cwd();
 var packageFilename = path.join(currentPath, 'package.json');
 var version = require(packageFilename).version;
