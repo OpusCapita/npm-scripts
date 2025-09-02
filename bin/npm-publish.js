@@ -32,6 +32,7 @@ fluidPublish.convertToISO8601 = function(timestamp) {
 
 if (program.release) {
   var updatingVersionMessage = 'Updating to version ';
+  const defaultRemoteName = 'origin';
   var currentPath = process.cwd();
   var packageFilename = path.join(currentPath, 'package.json');
   var version = require(packageFilename).version;
@@ -43,7 +44,8 @@ if (program.release) {
 
   fluidPublish.standard(program.test, {
     "pushVCTagCmd": "git push origin v${version}",
-    "vcTagCmd": "git tag -a v${version} -m \"Tagging the ${version} release\""
+    "vcTagCmd": "git tag -a v${version} -m \"Tagging the ${version} release\"",
+    "remoteName" : defaultRemoteName
   });
 
   if (!program.test) {
