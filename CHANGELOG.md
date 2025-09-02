@@ -1,3 +1,11 @@
+## [v2.0.3](https://github.com/OpusCapita/npm-scripts/compare/v2.0.2...v2.0.3) (Tue, 02 Sep 2025 19:06:11 GMT)
+ - Fix NPM registry URI (Wojciech Strzeliński <ext-wojciech.strzelinski@opuscapita.com>, e9ccaba)
+ - Fix version commit message and update version (Wojciech Strzeliński <ext-wojciech.strzelinski@opuscapita.com>, 6039cd6)
+ - Update fluid-publish (Wojciech Strzeliński <ext-wojciech.strzelinski@opuscapita.com>, 9eec38a)
+ - Fix changelog version commit
+    
+    Fix version change commit constant. (Wojciech Strzeliński <ext-wojciech.strzelinski@opuscapita.com>, 57189a4)
+
 ## [v2.0.1-beta.1](https://github.com/OpusCapita/npm-scripts/compare/v2.0.0...v2.0.1-beta.1) (Wed, 06 Sep 2017 08:55:56 GMT)
  - Preparing 2.0.1-beta.1 release (Alexey Sergeev <sab@scand.com>, c9bdf71)
  - Extending Grails plugin Resource configuration. For each file you can specify 'attrs' as object with many properties (not only 'type') which will be converged to Groovy map, also now you have possibility to specify 'exculde' property (String) (Alexey Sergeev <sab@scand.com>, 9f6da63)
